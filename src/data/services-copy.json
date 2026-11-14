@@ -1,0 +1,134 @@
+{
+ "residential": {
+  "h1": [
+   "Homes that fit",
+   "the way <em style=\"color:var(--bl)\">you live.</em>"
+  ],
+  "h2": "Planned around your <em class=\"accent\">day.</em>",
+  "body": [
+   "We start with how your family uses each room — where you cook, store, work and rest — and design the interior around it.",
+   "Because the furniture, kitchen, storage and woodwork are made in our own factory, what we draw is what gets built, to the millimetre."
+  ],
+  "caps": [
+   [
+    "Full-home interiors",
+    "Living, dining, bedrooms and study planned as one coherent home."
+   ],
+   [
+    "Villas & independent houses",
+    "From a single floor to the whole villa, coordinated from plan to handover."
+   ],
+   [
+    "Kitchens & storage",
+    "Modular kitchens and built-in storage made in our factory."
+   ],
+   [
+    "Doors & woodwork",
+    "Wooden doors, panelling and custom joinery, machined in-house."
+   ]
+  ],
+  "imgs": [
+   "residential",
+   "furniture"
+  ]
+ },
+ "commercial": {
+  "h1": [
+   "Workplaces that",
+   "<em style=\"color:var(--bl)\">work</em> well."
+  ],
+  "h2": "Built for every <em class=\"accent\">working</em> day.",
+  "body": [
+   "Offices, receptions and commercial spaces need to look right for your business and stand up to daily use. We plan for both from the first drawing.",
+   "Workstations, storage, reception counters and joinery are made in our own factory, so finishes stay consistent across the whole floor."
+  ],
+  "caps": [
+   [
+    "Corporate offices",
+    "Workstations, cabins and storage planned around how your team works."
+   ],
+   [
+    "Receptions & meeting rooms",
+    "The first thing clients see, detailed with care."
+   ],
+   [
+    "Commercial & retail spaces",
+    "Durable fit-outs with joinery made to measure."
+   ],
+   [
+    "Brand details",
+    "Material details that carry your identity through the space."
+   ]
+  ],
+  "imgs": [
+   "corporate",
+   "signage"
+  ]
+ },
+ "kitchens": {
+  "h1": [
+   "Kitchens, made in",
+   "our own <em style=\"color:var(--bl)\">factory.</em>"
+  ],
+  "h2": "Our core <em class=\"accent\">craft.</em>",
+  "body": [
+   "Modular kitchens are most of what our factory makes. We measure on site, plan the layout around how you cook, and build every cabinet ourselves.",
+   "Laminates, edge banding and finishing are done in-house — so edges are clean, shutters line up and the finish matches from the first cabinet to the last."
+  ],
+  "caps": [
+   [
+    "Layout planning",
+    "Measured on site and planned around how you cook and store."
+   ],
+   [
+    "Factory-made cabinets",
+    "Carcasses and shutters cut and assembled in our own factory."
+   ],
+   [
+    "Laminate & edge banding",
+    "Applied in-house for clean, durable edges."
+   ],
+   [
+    "Finishes & hardware",
+    "Shutters, counters and handles chosen with you, with real samples."
+   ]
+  ],
+  "imgs": [
+   "kitchen",
+   "residential"
+  ]
+ },
+ "furniture": {
+  "h1": [
+   "Furniture &amp; woodwork,",
+   "made to <em style=\"color:var(--bl)\">measure.</em>"
+  ],
+  "h2": "Machined and finished <em class=\"accent\">in-house.</em>",
+  "body": [
+   "Our workshop has the woodworking machinery to make modular furniture, wooden doors and custom woodwork to your exact dimensions.",
+   "Each piece is finished in-house, so it matches the rest of your interior — the same laminate, the same edge, the same care."
+  ],
+  "caps": [
+   [
+    "Modular furniture",
+    "Units made in our factory to fit your rooms exactly."
+   ],
+   [
+    "Wooden doors",
+    "Doors machined and finished in our workshop."
+   ],
+   [
+    "Custom woodwork",
+    "Panelling, shelving and bespoke pieces made to measure."
+   ],
+   [
+    "In-house finishing",
+    "Laminate, edge banding and finish applied by our own team."
+   ]
+  ],
+  "imgs": [
+   "furniture",
+   "kitchen"
+  ]
+ }
+}

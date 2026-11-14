@@ -1,0 +1,37 @@
+<!--meta {"title":"Start a project — contact GM Modulars, Chennai","desc":"Tell us about your home, office or kitchen. Call +91 98401 90449, WhatsApp us, or send an enquiry. Kundrathur Main Road, Kovur, Chennai.","nav":"contact"}-->
+<section class="phero phero--plain" data-theme="light">
+  <div class="wrap phero__copy">
+    <span class="kicker">Start a project</span>
+    <h1 class="h-xl lines"><span class="ln"><span>Tell us about</span></span><span class="ln"><span style="--i:1">your <em class="accent">space.</em></span></span></h1>
+    <p class="lead" data-reveal>A few details help us prepare. We’ll call you back, then visit to measure and talk it through.</p>
+  </div>
+</section>
+<section class="section" data-theme="light" style="padding-top:clamp(2rem,4vw,3rem)">
+  <div class="wrap split">
+    <form class="form contact-form" id="enquiry" novalidate aria-describedby="form-note">
+      <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+91" required><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-email">Email <span class="opt">(optional)</span></label><input id="f-email" name="email" type="email" autocomplete="email"><span class="err" aria-live="polite"></span></div>
+      <div class="field"><label for="f-loc">Location <span class="opt">(optional)</span></label><input id="f-loc" name="location" autocomplete="address-level2" placeholder="e.g. Porur, Chennai"><span class="err"></span></div>
+      <fieldset class="field field--full" style="border:0;padding:0;margin:0"><legend class="label" style="color:var(--smoke);margin-bottom:.9rem">Kind of space</legend>
+        <div class="chiprow">
+          <label><input type="radio" name="type" value="Home or villa" checked><span>Home or villa</span></label>
+          <label><input type="radio" name="type" value="Office or commercial"><span>Office or commercial</span></label>
+          <label><input type="radio" name="type" value="Modular kitchen"><span>Modular kitchen</span></label>
+          <label><input type="radio" name="type" value="Furniture or woodwork"><span>Furniture or woodwork</span></label>
+        </div><span class="err" aria-live="polite"></span>
+      </fieldset>
+      <div class="field field--full"><label for="f-msg">About the project <span class="opt">(optional)</span></label><textarea id="f-msg" name="message" placeholder="Rooms, rough size, timeline — anything that helps."></textarea><span class="err"></span></div>
+      <div class="form__foot"><p id="form-note" class="muted" style="font-size:var(--t-small);max-width:24rem">We use your details only to reply to this enquiry.</p><button class="btn btn--solid" type="submit">Send enquiry {{arrow}}</button></div>
+      <div class="form__status" role="status" tabindex="-1"></div>
+    </form>
+    <aside class="contact-aside" aria-label="Contact details">
+      <ul class="caps" style="margin-top:0">
+        <li><span class="label">Call</span><div><h3><a href="{{tel0}}">{{co.phones.0}}</a></h3><p><a href="{{tel1}}">{{co.phones.1}}</a></p></div></li>
+        <li><span class="label">Chat</span><div><h3><a href="https://wa.me/{{co.whatsapp}}" target="_blank" rel="noopener">WhatsApp</a></h3><p>{{co.phones.0}}</p></div></li>
+        <li><span class="label">Mail</span><div><h3><a href="mailto:{{co.email}}">{{co.email}}</a></h3></div></li>
+        <li><span class="label">Visit</span><div><h3>Kovur, Chennai</h3><p>{{co.address}}</p><a class="link" style="margin-top:.75rem" href="https://www.google.com/maps/search/?api=1&amp;query=GM%20Modulars%2C%207%2F137%20Kundrathur%20Main%20Road%2C%20Kovur%2C%20Chennai%20600128" target="_blank" rel="noopener">Open in Google Maps {{arrow}}</a></div></li>
+      </ul>
+    </aside>
+  </div>
+</section>

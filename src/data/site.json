@@ -1,0 +1,91 @@
+{
+  "company": {
+    "name": "GM Modulars",
+    "formerly": "Maps Modular",
+    "tagline": "Interior design & build — Chennai",
+    "years": "20+",
+    "phones": ["+91 98401 90449", "+91 98410 90448"],
+    "whatsapp": "919840190449",
+    "email": "gmmmodular@gmail.com",
+    "address": "7/137, Ground Floor, Kundrathur Main Road, Kovur, Chennai 600 128",
+    "addressShort": "Kundrathur Main Road, Kovur, Chennai",
+    "mapsQuery": "GM Modulars, 7/137 Kundrathur Main Road, Kovur, Chennai 600128",
+    "founder": "GM Muthu",
+    "founderTitle": "Founder & Managing Head",
+    "siteUrl": "https://www.example.com"
+  },
+  "services": [
+    {
+      "slug": "residential", "page": "residential.html", "num": "01",
+      "name": "Residential & villas", "short": "Residential",
+      "img": "residential",
+      "intro": "Homes and villas planned around how you live — then built and finished by the people who drew them.",
+      "caps": [["Full-home interiors", "Design + build"], ["Villas & independent houses", "Plan to handover"], ["Living, dining & bedrooms", "Joinery"]]
+    },
+    {
+      "slug": "commercial", "page": "commercial.html", "num": "02",
+      "name": "Corporate & commercial", "short": "Commercial",
+      "img": "corporate",
+      "intro": "Offices, receptions and commercial spaces that work hard every day and still present your business well.",
+      "caps": [["Corporate offices", "Workplace"], ["Receptions & meeting rooms", "First impressions"], ["Retail & commercial spaces", "Fit-out"]]
+    },
+    {
+      "slug": "kitchens", "page": "kitchens.html", "num": "03",
+      "name": "Modular kitchens", "short": "Kitchens",
+      "img": "kitchen",
+      "intro": "Our core craft. Kitchens made in our own factory, with laminates, edge banding and finishing done in-house.",
+      "caps": [["Layout planning", "Measured on site"], ["Factory-made cabinets", "In-house"], ["Laminate, edge band & finish", "In-house"]]
+    },
+    {
+      "slug": "furniture", "page": "furniture.html", "num": "04",
+      "name": "Furniture & woodwork", "short": "Furniture",
+      "img": "furniture",
+      "intro": "Modular furniture, wooden doors and custom woodwork, machined and finished in our workshop.",
+      "caps": [["Modular furniture", "Factory-made"], ["Wooden doors", "Machined in-house"], ["Custom woodwork", "Made to measure"]]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "residential-villa", "category": "residential", "categoryName": "Residential & villas",
+      "title": "Villa interior", "location": "Chennai", "year": "—", "scope": "Full interior design & build",
+      "img": "residential", "gallery": ["residential", "furniture", "kitchen"],
+      "placeholder": true
+    },
+    {
+      "slug": "corporate-office", "category": "commercial", "categoryName": "Corporate & commercial",
+      "title": "Corporate office", "location": "Chennai", "year": "—", "scope": "Office fit-out & joinery",
+      "img": "corporate", "gallery": ["corporate", "signage", "stationery"],
+      "placeholder": true
+    },
+    {
+      "slug": "modular-kitchen", "category": "kitchens", "categoryName": "Modular kitchens",
+      "title": "Walnut island kitchen", "location": "Chennai", "year": "—", "scope": "Modular kitchen, factory-made",
+      "img": "kitchen", "gallery": ["kitchen", "residential", "furniture"],
+      "placeholder": true
+    },
+    {
+      "slug": "living-furniture", "category": "furniture", "categoryName": "Furniture & woodwork",
+      "title": "Living room furniture", "location": "Chennai", "year": "—", "scope": "Custom furniture & woodwork",
+      "img": "furniture", "gallery": ["furniture", "residential", "kitchen"],
+      "placeholder": true
+    }
+  ],
+  "finishes": {
+    "shutter": [
+      {"id": "walnut", "name": "Walnut", "c": "#5E4535", "g": "#4A3528"},
+      {"id": "oak", "name": "Natural oak", "c": "#B8956B", "g": "#A07F58"},
+      {"id": "graphite", "name": "Graphite matte", "c": "#3A3835", "g": "#302E2B"},
+      {"id": "ivory", "name": "Ivory matte", "c": "#EAE3D6", "g": "#DDD5C6"},
+      {"id": "stone", "name": "Stone grey", "c": "#A8A196", "g": "#968F84"}
+    ],
+    "counter": [
+      {"id": "travertine", "name": "Travertine", "c": "#E2D6C3"},
+      {"id": "charcoal", "name": "Charcoal stone", "c": "#2A2826"},
+      {"id": "white", "name": "White quartz", "c": "#F4F2EE"}
+    ],
+    "hardware": [
+      {"id": "bronze", "name": "Brushed bronze", "c": "#A58869"},
+      {"id": "black", "name": "Matte black", "c": "#1A1A1A"}
+    ]
+  }
+}
