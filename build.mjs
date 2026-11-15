@@ -41,44 +41,11 @@ const C = {
       <div class="card__body"><div><h3>${esc(p.title)}</h3><span class="label">${esc(p.categoryName)} · ${esc(p.location)}</span></div><span class="card__arrow" aria-hidden="true">${ARROW}</span></div>
     </a>`,
   cards: (root, filter) => data.projects.filter(p => !filter || filter === 'all' || p.category === filter).map(p => C.card(root, p)).join(''),
-  fx: (root) => {
-    const F = data.finishes;
-    const group = (key, label, list, def) => `
-      <div class="fx__group"><h3 id="fx-${key}-l"><span>${label}</span><output for="fx-${key}" aria-live="polite"></output></h3>
-      <div class="chips" role="radiogroup" id="fx-${key}" data-group="${key}" aria-labelledby="fx-${key}-l">
-      ${list.map((f, i) => `<button type="button" class="chip" role="radio" aria-checked="${f.id === def}" tabindex="${f.id === def ? 0 : -1}" aria-label="${f.name}" title="${f.name}" data-name="${f.name}" data-c="${f.c}"${f.g ? ` data-g="${f.g}"` : ''} style="--sw:${f.c}"></button>`).join('')}
-      </div></div>`;
-    return `
-    <div class="fx">
-      <div class="fx__view" data-reveal="img">
-        ${PH('Illustrative demonstration')}
-        <svg viewBox="0 0 800 560" role="img" aria-label="Kitchen elevation showing the selected finishes">
-          <defs><pattern id="grain" width="140" height="24" patternUnits="userSpaceOnUse"><path data-part="shutter-grain" d="M0 6c30-3 50 4 80 1s45-3 60 0M0 17c25 2 55-3 85 0s40 2 55-1" fill="none" stroke="#4A3528" stroke-width="1.2" opacity=".55"/></pattern></defs>
-          <rect x="0" y="0" width="800" height="560" fill="#F4F0E9"/>
-          <rect x="0" y="470" width="800" height="90" fill="#D9D0C2"/>
-          <!-- backsplash -->
-          <rect data-part="counter" x="60" y="190" width="680" height="120" fill="#E2D6C3" opacity=".75"/>
-          <!-- upper cabinets -->
-          ${[60, 230, 400, 570].map(x => `<rect data-part="shutter" x="${x}" y="40" width="166" height="140" fill="#5E4535"/><rect x="${x}" y="40" width="166" height="140" fill="url(#grain)"/><rect data-part="hardware" x="${x + 70}" y="166" width="26" height="4" fill="#A58869"/>`).join('')}
-          <!-- base cabinets -->
-          ${[60, 230, 400, 570].map(x => `<rect data-part="shutter" x="${x}" y="330" width="166" height="140" fill="#5E4535"/><rect x="${x}" y="330" width="166" height="140" fill="url(#grain)"/><rect data-part="hardware" x="${x + 70}" y="344" width="26" height="4" fill="#A58869"/>`).join('')}
-          <!-- counter -->
-          <rect data-part="counter" x="52" y="310" width="696" height="20" fill="#E2D6C3"/>
-          <rect x="52" y="329" width="696" height="2" fill="rgba(0,0,0,.12)"/>
-          <!-- tap & objects -->
-          <path d="M470 310v-46a14 14 0 0 1 28 0" fill="none" stroke="#7A5F44" stroke-width="5"/>
-          <rect x="140" y="270" width="54" height="40" rx="4" fill="#C9C1B6"/><circle cx="640" cy="290" r="20" fill="#A58869" opacity=".7"/>
-          <rect x="52" y="470" width="696" height="6" fill="#171717" opacity=".85"/>
-        </svg>
-      </div>
-      <div class="fx__ctrl" data-fx>
-        ${group('shutter', 'Shutter finish', F.shutter, 'walnut')}
-        ${group('counter', 'Counter & backsplash', F.counter, 'travertine')}
-        ${group('hardware', 'Handles', F.hardware, 'bronze')}
-        <p class="fx__note">An illustrative demonstration of how finishes work together. Your actual laminate, stone and hardware options are selected with you at consultation.</p>
-      </div>
-    </div>`;
-  },
+  fx: (root) => `
+    <div class="fx" data-fx-studio data-reveal>
+      <noscript><p class="fx__note">The finish studio needs JavaScript. Call us to see real samples.</p></noscript>
+    </div>
+    <script src="${root}assets/js/fx.js" defer></script>`,
   contactList: () => `
     <div class="contact-list">
       <a href="${tel(co.phones[0])}"><span class="label">Call</span><strong>${co.phones[0]}<br>${co.phones[1]}</strong></a>
