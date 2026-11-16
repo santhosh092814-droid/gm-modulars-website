@@ -2,9 +2,9 @@
  "residential": {
   "h1": [
    "Homes that fit",
-   "the way <em style=\"color:var(--bl)\">you live.</em>"
+   "the way you live."
   ],
-  "h2": "Planned around your <em class=\"accent\">day.</em>",
+  "h2": "Planned around your day.",
   "body": [
    "We start with how your family uses each room — where you cook, store, work and rest — and design the interior around it.",
    "Because the furniture, kitchen, storage and woodwork are made in our own factory, what we draw is what gets built, to the millimetre."
@@ -35,9 +35,9 @@
  "commercial": {
   "h1": [
    "Workplaces that",
-   "<em style=\"color:var(--bl)\">work</em> well."
+   "work well."
   ],
-  "h2": "Built for every <em class=\"accent\">working</em> day.",
+  "h2": "Built for every working day.",
   "body": [
    "Offices, receptions and commercial spaces need to look right for your business and stand up to daily use. We plan for both from the first drawing.",
    "Workstations, storage, reception counters and joinery are made in our own factory, so finishes stay consistent across the whole floor."
@@ -68,9 +68,9 @@
  "kitchens": {
   "h1": [
    "Kitchens, made in",
-   "our own <em style=\"color:var(--bl)\">factory.</em>"
+   "our own factory."
   ],
-  "h2": "Our core <em class=\"accent\">craft.</em>",
+  "h2": "Our core craft.",
   "body": [
    "Modular kitchens are most of what our factory makes. We measure on site, plan the layout around how you cook, and build every cabinet ourselves.",
    "Laminates, edge banding and finishing are done in-house — so edges are clean, shutters line up and the finish matches from the first cabinet to the last."
@@ -101,9 +101,9 @@
  "furniture": {
   "h1": [
    "Furniture &amp; woodwork,",
-   "made to <em style=\"color:var(--bl)\">measure.</em>"
+   "made to measure."
   ],
-  "h2": "Machined and finished <em class=\"accent\">in-house.</em>",
+  "h2": "Machined and finished in-house.",
   "body": [
    "Our workshop has the woodworking machinery to make modular furniture, wooden doors and custom woodwork to your exact dimensions.",
    "Each piece is finished in-house, so it matches the rest of your interior — the same laminate, the same edge, the same care."

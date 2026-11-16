@@ -5,7 +5,9 @@
   const C = window.GM_CONFIG || {};
   const D = document, H = D.documentElement;
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const DESK = () => matchMedia('(min-width: 901px)').matches;
+  const mqDesk = matchMedia('(min-width: 901px)');
+  let desk = mqDesk.matches;
+  const DESK = () => desk;
   const $ = (s, r = D) => r.querySelector(s), $$ = (s, r = D) => [...r.querySelectorAll(s)];
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const store = { get(k) { try { return sessionStorage.getItem(k) } catch { return null } }, set(k, v) { try { sessionStorage.setItem(k, v) } catch {} } };
@@ -13,28 +15,47 @@
   if (C.showPlaceholderLabels === false) H.classList.add('no-ph');
   H.classList.add('js');
 
-  /* ---------- scroll loop (one rAF for everything) ---------- */
+  /* ---------- scroll loop (one rAF for everything) ----------
+     Each handler MEASURES and returns a function that WRITES. All measurements happen
+     first, then all writes, so the browser lays the page out once per frame (no thrashing). */
   const onScroll = [];
   let ticking = false;
-  const run = () => { ticking = false; const y = scrollY, vh = innerHeight; onScroll.forEach(f => f(y, vh)); };
-  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } }, { passive: true });
-  addEventListener('resize', () => requestAnimationFrame(run));
+  const run = () => {
+    ticking = false;
+    const y = scrollY, vh = innerHeight;
+    const writes = onScroll.map(f => f(y, vh));
+    writes.forEach(w => w && w());
+  };
+  const queue = () => { if (!ticking) { ticking = true; requestAnimationFrame(run); } };
+  addEventListener('scroll', queue, { passive: true });
+  addEventListener('resize', () => { desk = mqDesk.matches; queue(); });
+  const setVar = (el, k, v) => { if (el._v === undefined) el._v = {}; if (el._v[k] !== v) { el._v[k] = v; el.style.setProperty(k, v); } };
+  const near = (r, vh) => r.bottom > -vh * .25 && r.top < vh * 1.25; // element is on (or about to be on) screen
 
   /* ---------- header: theme by section underneath, hide on scroll down ---------- */
   const hdr = $('.hdr');
   if (hdr) {
     const themed = $$('[data-theme]');
-    let lastY = scrollY;
-    onScroll.push((y) => {
+    const zone = $('[data-hero-zone]');
+    let anchorY = scrollY, hidden = false;
+    onScroll.push((y, vh) => {
       const probe = hdr.offsetHeight / 2;
       let theme = 'dark';
       for (const s of themed) { const r = s.getBoundingClientRect(); if (r.top <= probe && r.bottom > probe) { theme = s.dataset.theme; break; } }
-      const overHero = !!$('[data-hero-zone]') && $('[data-hero-zone]').getBoundingClientRect().bottom > probe && y < innerHeight * .6;
-      hdr.classList.toggle('is-light', theme === 'light');
-      hdr.classList.toggle('is-solid-dark', theme === 'dark' && !overHero && y > 40);
+      const overHero = !!zone && zone.getBoundingClientRect().bottom > probe && y < vh * .6;
+      const max = H.scrollHeight - vh;
+      // Hide on a deliberate scroll down, show on a deliberate scroll up. Ignore the iOS rubber-band
+      // bounce at the top/bottom and small jitters, which otherwise make the header flicker.
+      if (y <= 0 || y >= max - 2) { anchorY = Math.max(0, Math.min(y, max)); }
+      else if (y - anchorY > 24) { hidden = y > vh * 1.2; anchorY = y; }
+      else if (anchorY - y > 24) { hidden = false; anchorY = y; }
+      else if (y < anchorY && !hidden) { anchorY = y; } else if (y > anchorY && hidden) { anchorY = y; }
       const menuOpen = D.body.classList.contains('menu-open');
-      hdr.classList.toggle('is-hidden', !menuOpen && y > lastY && y > innerHeight * 1.2);
-      lastY = y;
+      return () => {
+        hdr.classList.toggle('is-light', theme === 'light');
+        hdr.classList.toggle('is-solid-dark', theme === 'dark' && !overHero && y > 40);
+        hdr.classList.toggle('is-hidden', hidden && !menuOpen && y > vh * 1.2);
+      };
     });
   }
 
@@ -44,7 +65,7 @@
     const close = $('.mnav__close', mNav);
     const open = (on) => {
       mNav.classList.toggle('is-open', on); mBtn.setAttribute('aria-expanded', on);
-      mNav.setAttribute('aria-hidden', !on); D.body.classList.toggle('menu-open', on);
+      mNav.inert = !on; D.body.classList.toggle('menu-open', on);
       D.body.style.overflow = on ? 'hidden' : '';
       if (on) setTimeout(() => close.focus(), 50); else mBtn.focus();
     };
@@ -63,7 +84,7 @@
 
   /* ---------- reveals ---------- */
   const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px', threshold: .01 });
-  const armReveals = () => $$('[data-reveal], .lines:not([data-manual])').forEach(el => io.observe(el));
+  const armReveals = () => $$('.phero .lines, [data-reveal="line"]').forEach(el => io.observe(el));
 
   /* ---------- opening sequence (home, once per session) ---------- */
   const intro = $('.intro');
@@ -90,15 +111,17 @@
   if (svcEl && (RM || !DESK())) svcEl.classList.add('is-docked');
   if (hero && !RM) {
     onScroll.push((y, vh) => {
-      if (!DESK()) { hero.style.setProperty('--p', 0); return; }
-      const r = hero.getBoundingClientRect();
-      const p = clamp(-r.top / (hero.offsetHeight - vh));
+      if (!DESK()) return () => { setVar(hero, '--p', '0'); svcEl && svcEl.classList.add('is-docked'); };
+      const r = hero.getBoundingClientRect(), hh = hero.offsetHeight;
+      const p = clamp(-r.top / (hh - vh)); // past the hero this is 1, so a jump straight down still lands in the end state
       const e = p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; // ease in-out cubic
-      hero.style.setProperty('--p', e.toFixed(4));
-      hero.classList.toggle('is-end', p > .7);
-      const done = r.top <= -(hero.offsetHeight - vh) + 1; // stage about to release
-      hero.classList.toggle('is-handoff', done);
-      svcEl && svcEl.classList.toggle('is-docked', done);
+      const done = r.top <= -(hh - vh) + 1; // stage about to release
+      return () => {
+        setVar(hero, '--p', e.toFixed(3));
+        hero.classList.toggle('is-end', p > .7);
+        hero.classList.toggle('is-handoff', done);
+        svcEl && svcEl.classList.toggle('is-docked', done);
+      };
     });
   }
 
@@ -127,9 +150,10 @@
     align(); addEventListener('resize', align);
     // Active = item nearest the middle of the viewport. (IntersectionObserver rootMargin is ignored inside cross-origin iframes, so measure directly.)
     onScroll.push((y, vh) => {
+      if (!near(svc.getBoundingClientRect(), vh)) return null;
       let best = 0, bd = Infinity;
       items.forEach((it, k) => { const r = it.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - vh / 2); if (d < bd) { bd = d; best = k; } });
-      set(best);
+      return () => set(best);
     });
   }
 
@@ -138,9 +162,11 @@
   if (fac) {
     const stack = $('.stack', fac), proc = $('.process', fac);
     onScroll.push((y, vh) => {
-      if (RM) { stack && stack.style.setProperty('--q', 1); proc && proc.style.setProperty('--q2', 1); return; }
-      if (stack) { const r = stack.getBoundingClientRect(); stack.style.setProperty('--q', clamp((vh - r.top) / (vh * .9)).toFixed(3)); }
-      if (proc) { const r = proc.getBoundingClientRect(); proc.style.setProperty('--q2', clamp((vh * .9 - r.top) / (vh * .5)).toFixed(3)); }
+      if (RM) return () => { stack && setVar(stack, '--q', '1'); proc && setVar(proc, '--q2', '1'); };
+      const rs = stack && stack.getBoundingClientRect(), rp = proc && proc.getBoundingClientRect();
+      const q = rs && near(rs, vh) ? clamp((vh - rs.top) / (vh * .9)).toFixed(2) : null;
+      const q2 = rp && near(rp, vh) ? clamp((vh * .9 - rp.top) / (vh * .5)).toFixed(2) : null;
+      return () => { if (q !== null) setVar(stack, '--q', q); if (q2 !== null) setVar(proc, '--q2', q2); };
     });
   }
 
@@ -209,9 +235,9 @@
   if (lb) {
     const btns = $$('[data-lb]'), img = $('img', lb), count = $('[data-count]', lb);
     let i = 0, opener = null;
-    const show = (k) => { i = (k + btns.length) % btns.length; const b = btns[i]; img.src = b.dataset.lb; img.alt = b.querySelector('img').alt; count.textContent = `${String(i + 1).padStart(2, '0')} / ${String(btns.length).padStart(2, '0')}`; };
-    const open = (k, b) => { opener = b; show(k); lb.classList.add('is-open'); lb.setAttribute('aria-hidden', 'false'); D.body.style.overflow = 'hidden'; $('.lb__close', lb).focus(); };
-    const shut = () => { lb.classList.remove('is-open'); lb.setAttribute('aria-hidden', 'true'); D.body.style.overflow = ''; opener && opener.focus(); };
+    const show = (k) => { i = (k + btns.length) % btns.length; const b = btns[i]; img.src = b.dataset.lb; img.alt = b.querySelector('img').alt; count.textContent = `${i + 1} / ${btns.length}`; };
+    const open = (k, b) => { opener = b; show(k); lb.classList.add('is-open'); lb.inert = false; D.body.style.overflow = 'hidden'; $('.lb__close', lb).focus(); };
+    const shut = () => { lb.classList.remove('is-open'); lb.inert = true; D.body.style.overflow = ''; opener && opener.focus(); };
     btns.forEach((b, k) => b.addEventListener('click', () => open(k, b)));
     $('.lb__close', lb).addEventListener('click', shut);
     $('[data-lb-prev]', lb).addEventListener('click', () => show(i - 1));
@@ -273,6 +299,18 @@
     });
   }
   function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+
+  /* ---------- phone motion layer ---------- */
+  if (!RM && !desk) {
+    H.classList.add('mo');
+    const mio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); mio.unobserve(e.target); } }), { threshold: .12 });
+    $$('main .lines').forEach(el => { if (!el.closest('.hero,.phero')) mio.observe(el); });
+    $$('main [data-reveal], main .card, main .split, main .mat, main .process__list li, main .facts > div').forEach(el => {
+      if (el.closest('.hero,.phero,.lines,.track') || el.classList.contains('lines')) return;
+      el.classList.add('m-rv'); mio.observe(el);
+    });
+    $$('main figure, main .svc__frame, main [data-lb]').forEach(el => { if (el.querySelector('img') && !el.closest('.hero,.phero')) { el.classList.add('m-img'); mio.observe(el); } });
+  }
 
   /* ---------- go ---------- */
   armReveals();

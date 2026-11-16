@@ -20,8 +20,9 @@ function logoHz(label = 'GM Modulars — home') {
 }
 
 // ---------- image helper ----------
+const DIM = JSON.parse(fs.readFileSync(`${SRC}/data/img-dims.json`, 'utf8'));
 const img = (root, name, alt, { cls = '', sizes = '100vw', eager = false, vt = '' } = {}) =>
-  `<img${cls ? ` class="${cls}"` : ''} src="${root}assets/img/${name}-1600.webp" srcset="${root}assets/img/${name}-800.webp 800w, ${root}assets/img/${name}-1600.webp 1600w" sizes="${sizes}" alt="${esc(alt)}" width="1600" height="900"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${vt ? ` style="view-transition-name:${vt}"` : ''}>`;
+  `<img${cls ? ` class="${cls}"` : ''} src="${root}assets/img/${name}-1600.webp" srcset="${root}assets/img/${name}-800.webp 800w, ${root}assets/img/${name}-1600.webp 1600w" sizes="${sizes}" alt="${esc(alt)}" width="${(DIM[name] || [1600, 900])[0]}" height="${(DIM[name] || [1600, 900])[1]}"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${vt ? ` style="view-transition-name:${vt}"` : ''}>`;
 const ALT = data.images || {};
 const PH = (txt) => txt ? `<span class="ph">${txt}</span>` : ''; // photos are real GM work: no label by default
 
@@ -50,7 +51,7 @@ const C = {
   <section class="section dark cta" data-theme="dark" aria-labelledby="cta-h">
     <div class="wrap">
       <div class="cta__grid">
-        <h2 id="cta-h" class="h-display lines"><span class="ln"><span>Let’s design</span></span><span class="ln"><span style="--i:1">your <em class="accent">space.</em></span></span></h2>
+        <h2 id="cta-h" class="h-display lines"><span class="ln"><span>Let’s design</span></span><span class="ln"><span style="--i:1">your space.</span></span></h2>
         <div class="cta__side" data-reveal>
           <p class="lead">Tell us about your home, office or kitchen. We’ll visit, measure and talk it through with you.</p>
           <a class="btn btn--solid" href="${root}contact.html">Start a project ${ARROW}</a>
@@ -86,7 +87,7 @@ const head = (m, root, rel) => `<!DOCTYPE html>
 <script>/* Open every page at the top. Embedded previews and some browsers keep the previous page's scroll position; Back/Forward and real #anchors still work. */
 (function(){function top(){var n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(n&&n.type==='back_forward')return;var h=location.hash.slice(1);if(h&&document.getElementById(h))return;window.scrollTo(0,0)}top();document.addEventListener('DOMContentLoaded',top);addEventListener('load',function(){top();setTimeout(top,60)});addEventListener('pageshow',function(e){if(!e.persisted)top()})})();</script>
 
-${m.preload ? `<link rel="preload" as="image" href="${root}assets/img/${m.preload}-1600.webp" imagesrcset="${root}assets/img/${m.preload}-800.webp 800w, ${root}assets/img/${m.preload}-1600.webp 1600w" imagesizes="100vw">` : ''}
+${m.preload ? `<link rel="preload" as="image" fetchpriority="high" href="${root}assets/img/${m.preload}-1600.webp" imagesrcset="${root}assets/img/${m.preload}-800.webp 800w, ${root}assets/img/${m.preload}-1600.webp 1600w" imagesizes="100vw">` : ''}
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'HomeAndConstructionBusiness', name: co.name, description: 'Interior design and build company in Chennai with its own factory for modular kitchens, furniture, doors and woodwork.', telephone: co.phones[0].replace(/\s/g, ''), email: co.email, url: co.siteUrl, image: co.siteUrl + '/assets/img/og-image.png', address: { '@type': 'PostalAddress', streetAddress: '7/137, Ground Floor, Kundrathur Main Road, Kovur', addressLocality: 'Chennai', postalCode: '600128', addressRegion: 'Tamil Nadu', addressCountry: 'IN' }, areaServed: 'Tamil Nadu' })}</script>
 </head>
 <body>
@@ -99,11 +100,11 @@ const header = (m, root) => `
       ${NAV.map(([k, h, t]) => `<a href="${root}${h}"${m.nav === k ? ' aria-current="page"' : ''}>${t}</a>`).join('')}
     </nav>
     <a class="btn" href="${root}contact.html">Start a project ${ARROW}</a>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    <button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
 </header>
-<div class="mnav" id="mnav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
-  <button class="mnav__close" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menu" inert>
+  <button type="button" class="mnav__close" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
   <span class="kicker">Menu</span>
   <ol>
     <li><a href="${root}index.html" style="--i:0">Home</a></li>
@@ -144,7 +145,8 @@ function render(tpl, root, m) {
 }
 function emit(rel, m, body) {
   const root = rel.includes('/') ? '../' : '';
-  const html = head(m, root, rel) + header(m, root) + `\n<main id="main">` + render(body, root, m) + `</main>` + footer(m, root);
+  const html = (head(m, root, rel) + header(m, root) + `\n<main id="main">` + render(body, root, m) + `</main>` + footer(m, root))
+    .replace(/(>[^<]*?)\+91 (\d{5}) (\d{5})/g, '$1+91&nbsp;$2&nbsp;$3');
   fs.mkdirSync(path.dirname(`${OUT}/${rel}`), { recursive: true });
   fs.writeFileSync(`${OUT}/${rel}`, html); pages.push(rel);
 }
@@ -187,10 +189,10 @@ function servicePage(slug) {
   </section>
   <section class="section" data-theme="light">
     <div class="wrap split">
-      <div class="split__l"><span class="kicker" data-reveal>${s.num} — What we do</span><h2 class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>${copy.h2}</span></span></h2></div>
+      <div class="split__l"><span class="kicker" data-reveal>What we do</span><h2 class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>${copy.h2}</span></span></h2></div>
       <div class="split__r">
         ${copy.body.map((p, i) => `<p class="lead" data-reveal style="--i:${i}">${p}</p>`).join('')}
-        <ul class="caps">${copy.caps.map((c, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1).padStart(2, '0')}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div></li>`).join('')}</ul>
+        <ul class="caps">${copy.caps.map((c, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1)}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div></li>`).join('')}</ul>
       </div>
     </div>
   </section>
@@ -202,12 +204,12 @@ function servicePage(slug) {
   </section>
   <section class="section dark" data-theme="dark">
     <div class="wrap split">
-      <div class="split__l"><span class="kicker" data-reveal>How it works</span><h2 class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>One team,</span></span><span class="ln"><span style="--i:1">drawing to <em class="accent">fitting.</em></span></span></h2></div>
-      <div class="split__r"><ul class="caps">${[['Visit & measure', 'We see the space, understand how you use it and take exact measurements.'], ['Design', 'Layouts, materials and finishes, worked out with you.'], ['Make', 'Built in our own factory, with laminate, edge banding and finishing in-house.'], ['Install', 'Fitted on site by our own team.']].map((c, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1).padStart(2, '0')}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div></li>`).join('')}</ul></div>
+      <div class="split__l"><span class="kicker" data-reveal>How it works</span><h2 class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>One team,</span></span><span class="ln"><span style="--i:1">drawing to fitting.</span></span></h2></div>
+      <div class="split__r"><ul class="caps">${[['Visit & measure', 'We see the space, understand how you use it and take exact measurements.'], ['Design', 'Layouts, materials and finishes, worked out with you.'], ['Make', 'Built in our own factory, with laminate, edge banding and finishing in-house.'], ['Install', 'Fitted on site by our own team.']].map((c, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1)}</span><div><h3>${c[0]}</h3><p>${c[1]}</p></div></li>`).join('')}</ul></div>
     </div>
   </section>
   <section class="section" data-theme="light" data-track>
-    <div class="wrap work__head"><div><span class="kicker" data-reveal>Related work</span><h2 class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>${s.short} <em class="accent">projects</em></span></span></h2></div><a class="link" href="{{root}}projects.html#${s.slug}">All projects {{arrow}}</a></div>
+    <div class="wrap work__head"><div><span class="kicker" data-reveal>Related work</span><h2 class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>${s.short} projects</span></span></h2></div><a class="link" href="{{root}}projects.html#${s.slug}">All projects {{arrow}}</a></div>
     <div class="track">${C.cards('{{root}}', s.slug)}</div>
   </section>
   <section class="section trav" data-theme="light">
@@ -236,11 +238,11 @@ function projectPage(p, nx) {
         <div data-reveal style="--i:3"><dt>Made in our factory</dt><dd>${p.made}</dd></div>
       </dl>
       <div class="split" style="margin-top:clamp(4rem,8vw,7rem)">
-        <div class="split__l"><span class="kicker" data-reveal>The brief</span></div>
+        <div class="split__l"><h2 class="kicker" data-reveal>The brief</h2></div>
         <div class="split__r"><p class="lead ink" data-reveal>${esc(p.brief)}</p></div>
-        <div class="split__l"><span class="kicker" data-reveal>What they needed</span></div>
-        <div class="split__r"><ul class="caps" style="margin-top:0">${p.needs.map((n, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1).padStart(2, '0')}</span><div><h3>${esc(n)}</h3></div></li>`).join('')}</ul></div>
-        <div class="split__l"><span class="kicker" data-reveal>What we did</span></div>
+        <div class="split__l"><h2 class="kicker" data-reveal>What they needed</h2></div>
+        <div class="split__r"><ul class="caps" style="margin-top:0">${p.needs.map((n, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1)}</span><div><p class="t">${esc(n)}</p></div></li>`).join('')}</ul></div>
+        <div class="split__l"><h2 class="kicker" data-reveal>What we did</h2></div>
         <div class="split__r">${p.approach.map((t, i) => `<p class="lead" data-reveal style="--i:${i}">${esc(t)}</p>`).join('')}</div>
       </div>
     </div>
@@ -252,10 +254,10 @@ function projectPage(p, nx) {
     ${img(root, nx.img, ALT[nx.img], { vt: 'p-' + nx.slug })}
     <div class="wrap nextp__in"><span class="kicker">Next project</span><span class="h-display" style="margin-top:1.25rem">${esc(nx.title)}</span><span class="link" style="margin-top:2rem;align-self:flex-start;color:var(--bl)">View project {{arrow}}</span></div>
   </a>
-  <div class="lb" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
-    <img src="" alt="">
-    <button class="iconbtn lb__close" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
-    <div class="lb__bar"><span class="label" data-count></span><span style="display:flex;gap:.5rem"><button class="iconbtn" data-lb-prev aria-label="Previous image">{{arrowL}}</button><button class="iconbtn" data-lb-next aria-label="Next image">{{arrow}}</button></span></div>
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Image viewer" inert>
+    <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="">
+    <button type="button" class="iconbtn lb__close" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+    <div class="lb__bar"><span class="label" data-count></span><span style="display:flex;gap:.5rem"><button type="button" class="iconbtn" data-lb-prev aria-label="Previous image">{{arrowL}}</button><button type="button" class="iconbtn" data-lb-next aria-label="Next image">{{arrow}}</button></span></div>
   </div>
   {{@cta}}`;
 }

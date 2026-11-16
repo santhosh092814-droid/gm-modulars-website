@@ -233,7 +233,10 @@ html.no-ph .ph{display:none}
 .stack__lbl{position:absolute;display:flex;align-items:center;gap:.75rem;font:500 var(--t-label)/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--stone);opacity:calc(var(--q) * 1.6 - .4)}
 .stack__lbl::before{content:"";width:clamp(28px,4vw,64px);height:1px;background:var(--bl)}
 .stack__lbl b{color:var(--bl);font-weight:500}
-.process{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gut);margin-top:clamp(4rem,8vw,7rem);position:relative}
+.process{margin-top:clamp(4rem,8vw,7rem);position:relative}
+.process__list{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gut)}
+.facts--3{grid-template-columns:repeat(3,1fr)}
+.facts--3 div{border-color:var(--rule-d)}
 .process__bar{position:absolute;left:0;right:0;top:0;height:1px;background:var(--rule-d)}
 .process__bar i{position:absolute;left:0;top:-1px;height:3px;width:100%;background:var(--bronze);transform-origin:left;transform:scaleX(var(--q2,0))}
 .step{padding-top:1.75rem}
@@ -417,7 +420,7 @@ html.no-ph .ph{display:none}
 .field{display:grid;gap:.55rem;position:relative}
 .field--full{grid-column:1/-1}
 .field label{font:500 var(--t-label)/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--smoke)}
-.field label .opt{color:var(--ash);text-transform:none;letter-spacing:.02em;font-family:var(--sans)}
+.field label .opt{color:var(--smoke);text-transform:none;letter-spacing:.02em;font-family:var(--sans)}
 .field input,.field select,.field textarea{width:100%;font:500 1.0625rem/1.4 var(--sans);color:var(--char);background:transparent;border:0;border-bottom:1px solid rgba(23,23,23,.35);padding:.7rem 0;border-radius:0;transition:border-color var(--d-base)}
 .field select{appearance:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23171717' stroke-width='1.5'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right center/18px no-repeat;padding-right:2rem}
 .field textarea{min-height:130px;resize:vertical}
@@ -476,7 +479,8 @@ html.no-ph .ph{display:none}
   .svc__inline img{width:100%;height:100%;object-fit:cover}
   .fac__copy,.stack{grid-column:1/13}
   .stack{margin-top:2rem;height:340px}
-  .process{grid-template-columns:1fr 1fr;row-gap:2rem}
+  .process__list{grid-template-columns:1fr 1fr;row-gap:2rem}
+  .facts--3{grid-template-columns:1fr}
   .fx__view,.fx__ctrl{grid-column:1/13}
   .fx__view{top:var(--header-h);z-index:3;border-top-left-radius:28px}
   .fx__ctrl{margin-top:2rem}
@@ -499,7 +503,7 @@ html.no-ph .ph{display:none}
   .stats{grid-template-columns:1fr 1fr 1fr;gap:.75rem}
   .contact-list{grid-template-columns:1fr}
   .mats{grid-template-columns:1fr}
-  .process{grid-template-columns:1fr}
+  .process__list{grid-template-columns:1fr}
   .work__ctrl{display:none}
 }
 @media (hover:none){
@@ -521,13 +525,126 @@ html.no-ph .ph{display:none}
 .phero__copy .crumbs{grid-column:1/13}
 
 /* legibility over real photography */
-.hero__copy,.phero__copy,.nextp__in{text-shadow:0 1px 2px rgba(0,0,0,.35),0 4px 28px rgba(0,0,0,.45)}
-.hero__aside p,.phero__copy .lead{color:var(--ivory)!important}
-.hero__meta,.crumbs{text-shadow:0 1px 2px rgba(0,0,0,.6)}
-.phero .crumbs,.phero .kicker{color:var(--ivory)}
+.hero__copy,.phero:not(.phero--plain) .phero__copy,.nextp__in{text-shadow:0 1px 2px rgba(0,0,0,.35),0 4px 28px rgba(0,0,0,.45)}
+.hero__aside p,.phero:not(.phero--plain) .phero__copy .lead{color:var(--ivory)!important}
+.hero__meta,.phero:not(.phero--plain) .crumbs{text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.phero:not(.phero--plain) .crumbs,.phero:not(.phero--plain) .kicker{color:var(--ivory)}
 .nextp img{opacity:.42}
 .svc__frame::after{content:"";position:absolute;inset:auto 0 0 0;height:30%;z-index:2;background:linear-gradient(transparent,rgba(23,23,23,.7));pointer-events:none}
 .card__img::after{content:none}
 @media (max-width:900px){
   .phero__img::after,.hero__shade{background:linear-gradient(180deg,rgba(23,23,23,.6) 0,rgba(23,23,23,.25) 22%,rgba(23,23,23,.55) 45%,rgba(23,23,23,.92) 72%,rgba(23,23,23,.96) 100%)}
+}
+
+/* =========================================================
+   UNSLOP PASS — review copy, 16 Nov 2026
+   Overrides only; everything above is unchanged.
+   ========================================================= */
+
+/* Type — labels, buttons, nav and links in the body face, sentence case.
+   Mono capitals survive only inside the board cross-section, which is a technical drawing. */
+.label,.kicker,.nav a,.btn,.link,.fx__tabs button,.fx__group h3,.ftr__col h2,.ftr__base,.crumbs,.filter,.facts dt,.field label,.ph,.svc__caps li span,.stack__lbl{font-family:var(--sans);text-transform:none;letter-spacing:0}
+.label{font-size:.8125rem;font-weight:500}
+.kicker{font:500 .9375rem/1.3 var(--sans);color:var(--smoke)}
+.dark .kicker,[data-theme="dark"] .kicker,.phero:not(.phero--plain) .kicker{color:var(--stone)}
+.kicker::before{content:none}
+.nav a{font-size:.9375rem}
+.nav a::after{height:1px;bottom:.25rem}
+.link{font:500 .9375rem/1 var(--sans);border-bottom-width:1px}
+.fx__tabs button,.filter{font-size:.875rem}
+.fx__group h3,.facts dt,.field label{font-size:.8125rem;color:var(--smoke)}
+.ftr__col h2{font-size:.875rem;color:var(--ash)}
+.ftr__base{font-size:.8125rem}
+.crumbs{font-size:.875rem}
+.ph{font-size:.75rem;letter-spacing:0}
+.mnav li a::before{content:none}
+
+/* Buttons — plain rectangles with a colour step on hover; the notched corner and wipe are gone.
+   The rounded G-corner on photographs stays as the one signature. */
+.btn{font:500 .9375rem/1 var(--sans);clip-path:none;padding:.85rem 1.25rem;transition:background-color var(--d-quick) var(--settle),border-color var(--d-quick) var(--settle),color var(--d-quick) var(--settle)}
+.btn::before{content:none}
+.btn:hover,.btn:focus-visible{background:var(--bronze);border-color:var(--bronze);color:var(--char)}
+.btn:hover svg{transform:none}
+.btn:active{transform:scale(.98)}
+.link:hover svg{transform:translateX(3px)}
+
+/* Lines — spacing does the grouping; rules stay only where the eye tracks across (header, footer base, process bar) */
+.svc__item{border-top:0}
+.svc__caps li{border-top:0;padding:.3rem 0;color:var(--stone)}
+.svc__caps{margin-top:1.25rem}
+.stat{border-top:0;padding-top:0}
+.contact-list a,.contact-list div{border-top:0;padding-top:0}
+.card__body{border-top:0;padding-top:0}
+.facts div{border-top:0;padding-top:0}
+.caps li{border-top:0;padding:1rem 0}
+.caps li:last-child{border-bottom:0}
+.mat{border-top:0;padding-top:0}
+.card__arrow{border:0;width:auto;height:auto;padding-top:.35rem;color:var(--smoke)}
+.card:hover .card__arrow{background:none;border:0;color:var(--bd)}
+
+/* Stats — one real number */
+.stats--one{grid-template-columns:1fr;margin-top:2.5rem}
+.stats--one .stat{display:flex;align-items:baseline;gap:1rem}
+.stats--one .stat span{margin-top:0;max-width:16rem}
+
+/* Motion — content is simply there. Kept: the opening, the hero line reveal,
+   the hero-to-services frame, the cross-section assembling, and the process bar. */
+[data-reveal]{opacity:1;transform:none;transition:none}
+[data-reveal="img"]::after{content:none}
+[data-reveal="img"] img{transform:none;transition:none}
+[data-reveal="line"]{transform:none}
+.lines .ln>span{transform:none;transition:none}
+.hero .lines .ln>span{transform:translateY(108%);transition:transform 1.15s var(--settle);transition-delay:calc(var(--i,0) * 90ms + var(--d,0ms))}
+.hero .lines.is-in .ln>span{transform:none}
+.phero__img img{animation:none;transform:none}
+.card:hover .card__img img,.card:focus-visible .card__img img,.gallery button:hover img,.nextp:hover img{transform:none}
+.chip:hover{transform:none}
+
+/* Factory — board cross-section. The page script sets --q (0→1) as it scrolls in; the parts close onto the core. */
+.xsec{grid-column:7/13;height:auto;perspective:none;margin:0;--a:clamp(0,calc(var(--q,1) * 2 - .2),1);--l:clamp(0,calc(var(--q,1) * 3 - 1.4),1)}
+.xsec svg{display:block;width:100%;height:auto;overflow:visible}
+.xsec__tall{display:none!important}
+.xsec g{transform-box:fill-box}
+.xsec__core{transform-origin:left center;transform:scaleX(calc(.15 + var(--a) * .85))}
+.xsec__top{transform:translateY(calc((1 - var(--a)) * -44px));opacity:var(--a)}
+.xsec__bot{transform:translateY(calc((1 - var(--a)) * 44px));opacity:var(--a)}
+.xsec__edge{transform:translateX(calc((1 - var(--a)) * 52px));opacity:var(--a)}
+.xsec__lbl{opacity:var(--l)}
+.xsec__txt{font:500 14px/1 var(--mono);letter-spacing:.1em;fill:var(--ivory)}
+.xsec figcaption{margin-top:2rem;max-width:34rem;color:var(--ash);font-size:var(--t-small);line-height:1.55}
+@media (max-width:900px){.xsec{grid-column:1/13;margin-top:3rem}}
+@media (max-width:600px){.xsec__wide{display:none!important}.xsec__tall{display:block!important}.xsec__txt{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.xsec{--a:1;--l:1}}
+
+.caps .t{font:600 1.0625rem/1.35 var(--sans);margin:0}
+h2.kicker{margin:0;font-weight:500}
+
+/* ---------- mobile scroll performance ----------
+   Blur behind a fixed header is re-rendered every frame while scrolling and is the main cause of
+   flicker on phones (especially iOS Safari). Phones get a near-opaque header instead.
+   Page transitions are also switched off on touch devices, where they can flash on slow GPUs. */
+body{overflow-x:clip}
+@media (max-width:900px),(hover:none){
+  .hdr,.hdr.is-light,.hdr.is-solid-dark{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hdr.is-light{background:rgb(244,240,233)}
+  .hdr.is-solid-dark{background:rgb(23,23,23)}
+  .hdr{transition:transform .35s var(--settle),background-color .25s linear,color .25s linear}
+  @view-transition{navigation:none}
+}
+@media (hover:hover) and (min-width:901px){ .hero__frame{will-change:clip-path} }
+@media (max-width:900px){ .ftr__col ul{gap:0} .ftr__col a,.ftr__contact a{display:inline-block;padding-block:.5rem} }
+
+/* ---------- phone motion layer (transform/opacity only, so it stays smooth) ---------- */
+@media (max-width:900px) and (prefers-reduced-motion:no-preference){
+  .mo .lines:not(.is-in) .ln>span{transform:translateY(108%)}
+  .mo .lines .ln>span{transition:transform .9s var(--settle);transition-delay:calc(var(--i,0) * 80ms)}
+  .mo .m-rv{opacity:0;transform:translate3d(0,26px,0);transition:opacity .8s var(--settle),transform .9s var(--settle)}
+  .mo .m-rv.is-in{opacity:1;transform:none}
+  .mo .m-img{overflow:hidden}
+  .mo .m-img img{transform:scale(1.12);transition:transform 1.4s var(--settle)}
+  .mo .m-img.is-in img{transform:scale(1)}
+  .mo .hero img,.mo .phero img{animation:mDrift 14s var(--settle) both}
+  @keyframes mDrift{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+  .mo .btn,.mo .card,.mo .chip,.mo .filter{transition:transform .2s var(--settle)}
+  .mo .btn:active,.mo .card:active,.mo .chip:active,.mo .filter:active{transform:scale(.97)}
 }

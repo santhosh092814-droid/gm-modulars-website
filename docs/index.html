@@ -20,7 +20,7 @@
 <script>/* Open every page at the top. Embedded previews and some browsers keep the previous page's scroll position; Back/Forward and real #anchors still work. */
 (function(){function top(){var n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(n&&n.type==='back_forward')return;var h=location.hash.slice(1);if(h&&document.getElementById(h))return;window.scrollTo(0,0)}top();document.addEventListener('DOMContentLoaded',top);addEventListener('load',function(){top();setTimeout(top,60)});addEventListener('pageshow',function(e){if(!e.persisted)top()})})();</script>
 
-<link rel="preload" as="image" href="assets/img/h1-living-1600.webp" imagesrcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" imagesizes="100vw">
+<link rel="preload" as="image" fetchpriority="high" href="assets/img/h1-living-1600.webp" imagesrcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" imagesizes="100vw">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"GM Modulars","description":"Interior design and build company in Chennai with its own factory for modular kitchens, furniture, doors and woodwork.","telephone":"+919840190449","email":"gmmmodular@gmail.com","url":"https://santhosh092814-droid.github.io/gm-modulars-website","image":"https://santhosh092814-droid.github.io/gm-modulars-website/assets/img/og-image.png","address":{"@type":"PostalAddress","streetAddress":"7/137, Ground Floor, Kundrathur Main Road, Kovur","addressLocality":"Chennai","postalCode":"600128","addressRegion":"Tamil Nadu","addressCountry":"IN"},"areaServed":"Tamil Nadu"}</script>
 </head>
 <body>
@@ -32,36 +32,35 @@
       <a href="residential.html">Residential</a><a href="commercial.html">Commercial</a><a href="kitchens.html">Kitchens</a><a href="furniture.html">Furniture</a><a href="projects.html">Projects</a><a href="materials.html">Materials</a><a href="about.html">About</a>
     </nav>
     <a class="btn" href="contact.html">Start a project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a>
-    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
+    <button type="button" class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
   </div>
 </header>
-<div class="mnav" id="mnav" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Menu">
-  <button class="mnav__close" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
+<div class="mnav" id="mnav" role="dialog" aria-modal="true" aria-label="Menu" inert>
+  <button type="button" class="mnav__close" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19"/></svg></button>
   <span class="kicker">Menu</span>
   <ol>
     <li><a href="index.html" style="--i:0">Home</a></li>
     <li><a href="residential.html" style="--i:1">Residential</a></li><li><a href="commercial.html" style="--i:2">Commercial</a></li><li><a href="kitchens.html" style="--i:3">Kitchens</a></li><li><a href="furniture.html" style="--i:4">Furniture</a></li><li><a href="projects.html" style="--i:5">Projects</a></li><li><a href="materials.html" style="--i:6">Materials</a></li><li><a href="about.html" style="--i:7">About</a></li>
     <li><a href="contact.html" style="--i:8">Start a project</a></li>
   </ol>
-  <div class="mnav__foot"><a href="tel:+919840190449">+91 98401 90449</a><a href="mailto:gmmmodular@gmail.com">gmmmodular@gmail.com</a><span>Kundrathur Main Road, Kovur, Chennai</span></div>
+  <div class="mnav__foot"><a href="tel:+919840190449">+91&nbsp;98401&nbsp;90449</a><a href="mailto:gmmmodular@gmail.com">gmmmodular@gmail.com</a><span>Kundrathur Main Road, Kovur, Chennai</span></div>
 </div>
 <main id="main">
 <div class="intro" aria-hidden="true">
   <div class="intro__panel intro__panel--l"></div><div class="intro__panel intro__panel--r"></div>
-  <div class="intro__mark"><img src="assets/logo/gm-symbol-brushed.png" alt="" width="1200" height="590"></div>
+  <div class="intro__mark"><img src="assets/logo/gm-symbol-brushed.png" alt="" width="1165" height="576"></div>
 </div>
 
 <!-- 1 · HERO — the room contracts into a frame that becomes the services showcase -->
 <section class="hero" data-theme="dark" data-hero-zone aria-labelledby="hero-h">
   <div class="hero__stage">
     <div class="hero__frame">
-      <img class="hero__img" src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="100vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1600" height="900" fetchpriority="high">
+      <img class="hero__img" src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="100vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1536" height="1024" fetchpriority="high">
       <div class="hero__shade"></div>
       
     </div>
-    <div class="hero__meta label" aria-hidden="true"><span>Interior design &amp; build</span><span>Chennai · Tamil Nadu</span></div>
     <div class="hero__copy">
-      <h1 id="hero-h" class="h-xl lines" data-manual><span class="ln"><span style="--d:0ms">Interiors,</span></span><span class="ln"><span style="--i:1"><em style="color:var(--bl)">made</em> to measure.</span></span></h1>
+      <h1 id="hero-h" class="h-xl lines" data-manual><span class="ln"><span style="--d:0ms">Interiors,</span></span><span class="ln"><span style="--i:1">made to measure.</span></span></h1>
       <div class="hero__aside">
         <p>Homes, villas, offices and commercial spaces — designed, made in our own factory and fitted by one team.</p>
         <div style="display:flex;gap:1rem;flex-wrap:wrap"><a class="btn btn--solid" href="#work">See our work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a><a class="btn" href="contact.html">Start a project</a></div>
@@ -69,7 +68,7 @@
     </div>
     <div class="hero__next" aria-hidden="true">
       <span class="kicker">Four kinds of space</span>
-      <p class="h1">One workshop, <em class="accent">every</em> room.</p>
+      <p class="h1">One workshop, every room.</p>
       <p>From a single kitchen to a whole villa or office floor, the same team designs it, makes it and fits it.</p>
     </div>
   </div>
@@ -81,44 +80,38 @@
   <div class="wrap svc__in">
     <div class="svc__list">
       <article class="svc__item" data-name="Residential &amp; villas">
-        <div class="svc__inline"><img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="100vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1600" height="900" loading="lazy" decoding="async"></div>
-        <span class="svc__num">01 / 04</span>
-        <h3 class="h1">Residential <em class="accent">&amp;</em> villas</h3>
+        <div class="svc__inline"><img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="100vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <h3 class="h1">Residential &amp; villas</h3>
         <p>Homes and villas planned around how you live — then built and finished by the people who drew them.</p>
-        <ul class="svc__caps"><li>Full-home interiors<span>Design + build</span></li><li>Villas &amp; independent houses<span>Plan to handover</span></li><li>Living, dining &amp; bedrooms<span>Joinery</span></li></ul>
+        <ul class="svc__caps"><li>Full-home interiors</li><li>Villas &amp; independent houses</li><li>Living, dining &amp; bedrooms</li></ul>
         <a class="link" href="residential.html">Residential interiors <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a>
       </article>
       <article class="svc__item" data-name="Corporate &amp; commercial">
         <div class="svc__inline"><img src="assets/img/o1-reception-1600.webp" srcset="assets/img/o1-reception-800.webp 800w, assets/img/o1-reception-1600.webp 1600w" sizes="100vw" alt="Sunlit reception with a walnut-clad counter, travertine-tone feature wall and a lounge seating area" width="1600" height="900" loading="lazy" decoding="async"></div>
-        <span class="svc__num">02 / 04</span>
-        <h3 class="h1">Corporate <em class="accent">&amp;</em> commercial</h3>
+        <h3 class="h1">Corporate &amp; commercial</h3>
         <p>Offices, receptions and commercial spaces that work hard every day and still present your business well.</p>
-        <ul class="svc__caps"><li>Corporate offices<span>Workplace</span></li><li>Receptions &amp; meeting rooms<span>First impressions</span></li><li>Retail &amp; commercial spaces<span>Fit-out</span></li></ul>
+        <ul class="svc__caps"><li>Corporate offices</li><li>Receptions &amp; meeting rooms</li><li>Retail &amp; commercial spaces</li></ul>
         <a class="link" href="commercial.html">Commercial interiors <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a>
       </article>
       <article class="svc__item" data-name="Modular kitchens">
-        <div class="svc__inline"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="100vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1600" height="900" loading="lazy" decoding="async"></div>
-        <span class="svc__num">03 / 04</span>
-        <h3 class="h1">Modular <em class="accent">kitchens</em></h3>
+        <div class="svc__inline"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="100vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <h3 class="h1">Modular kitchens</h3>
         <p>Our core craft. Kitchens made in our own factory, with laminates, edge banding and finishing done in-house.</p>
-        <ul class="svc__caps"><li>Layout planning<span>Measured on site</span></li><li>Factory-made cabinets<span>In-house</span></li><li>Laminate, edge band &amp; finish<span>In-house</span></li></ul>
+        <ul class="svc__caps"><li>Layout planning</li><li>Factory-made cabinets</li><li>Laminate, edge band &amp; finish</li></ul>
         <a class="link" href="kitchens.html">Modular kitchens <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a>
       </article>
       <article class="svc__item" data-name="Furniture &amp; woodwork">
-        <div class="svc__inline"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="100vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1600" height="900" loading="lazy" decoding="async"></div>
-        <span class="svc__num">04 / 04</span>
-        <h3 class="h1">Furniture <em class="accent">&amp;</em> woodwork</h3>
+        <div class="svc__inline"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="100vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <h3 class="h1">Furniture &amp; woodwork</h3>
         <p>Modular furniture, wooden doors and custom woodwork, machined and finished in our workshop.</p>
-        <ul class="svc__caps"><li>Modular furniture<span>Factory-made</span></li><li>Wooden doors<span>Machined in-house</span></li><li>Custom woodwork<span>Made to measure</span></li></ul>
+        <ul class="svc__caps"><li>Modular furniture</li><li>Wooden doors</li><li>Custom woodwork</li></ul>
         <a class="link" href="furniture.html">Furniture solutions <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a>
       </article>
     </div>
     <div class="svc__media" aria-hidden="true">
       <div class="svc__frame">
-        <img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="100vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1600" height="900" loading="lazy" decoding="async"><img src="assets/img/o1-reception-1600.webp" srcset="assets/img/o1-reception-800.webp 800w, assets/img/o1-reception-1600.webp 1600w" sizes="100vw" alt="Sunlit reception with a walnut-clad counter, travertine-tone feature wall and a lounge seating area" width="1600" height="900" loading="lazy" decoding="async"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="100vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1600" height="900" loading="lazy" decoding="async"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="100vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1600" height="900" loading="lazy" decoding="async">
+        <img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="100vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1536" height="1024" loading="lazy" decoding="async"><img src="assets/img/o1-reception-1600.webp" srcset="assets/img/o1-reception-800.webp 800w, assets/img/o1-reception-1600.webp 1600w" sizes="100vw" alt="Sunlit reception with a walnut-clad counter, travertine-tone feature wall and a lounge seating area" width="1600" height="900" loading="lazy" decoding="async"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="100vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1536" height="1024" loading="lazy" decoding="async"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="100vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1536" height="1024" loading="lazy" decoding="async">
         
-        <span class="svc__cap label"></span>
-        <span class="svc__tick"><i></i><i></i><i></i><i></i></span>
       </div>
     </div>
   </div>
@@ -129,43 +122,48 @@
   <div class="wrap">
     <div class="fac__grid">
       <div class="fac__copy">
-        <span class="kicker" data-reveal>Made in-house</span>
-        <h2 id="fac-h" class="h1 lines"><span class="ln"><span>Every layer,</span></span><span class="ln"><span style="--i:1">made in <em class="accent">our factory.</em></span></span></h2>
+        <h2 id="fac-h" class="h1 lines"><span class="ln"><span>Every layer,</span></span><span class="ln"><span style="--i:1">made in our factory.</span></span></h2>
         <p class="lead" data-reveal>We don’t buy in finished cabinets. Boards are cut, laminated, edge-banded and finished by our own team — the reason our joinery lines up, closes softly and lasts.</p>
-        <div class="stats">
-          <div class="stat" data-reveal><b>20+</b><span>years designing &amp; building interiors</span></div>
-          <div class="stat" data-reveal style="--i:1"><b>1</b><span>team from drawing to fitting</span></div>
-          <div class="stat" data-reveal style="--i:2"><b>TN</b><span>projects across Tamil Nadu</span></div>
-        </div>
+        <div class="stats stats--one"><div class="stat"><b>20+</b><span>years designing and building interiors</span></div></div>
       </div>
-      <div class="stack" aria-label="Illustration of a cabinet panel separating into its layers: carcass board, laminate, edge band and finish" role="img">
-        <div class="stack__iso">
-          <div class="slab" style="--z:0;--c:#B79A7A;--cs:#8E7457;--cs2:#7E654B;--t:22px"><div class="slab__top" style="--tx:repeating-linear-gradient(90deg,rgba(0,0,0,.15) 0 2px,transparent 2px 9px)"></div><div class="slab__side"></div><div class="slab__side2"></div></div>
-          <div class="slab" style="--z:1;--c:#5E4535;--cs:#4A3528;--cs2:#3E2D22;--t:5px"><div class="slab__top" style="--tx:repeating-linear-gradient(8deg,rgba(255,255,255,.12) 0 1px,transparent 1px 7px)"></div><div class="slab__side"></div><div class="slab__side2"></div></div>
-          <div class="slab" style="--z:2;--c:transparent;--cs:#A58869;--cs2:#C8AE8C;--t:6px"><div class="slab__top" style="box-shadow:inset 0 0 0 6px #A58869;background:transparent"></div><div class="slab__side"></div><div class="slab__side2"></div></div>
-          <div class="slab" style="--z:3;--c:rgba(244,240,233,.10);--cs:rgba(244,240,233,.25);--cs2:rgba(244,240,233,.18);--t:2px"><div class="slab__top" style="box-shadow:inset 0 0 0 1px rgba(244,240,233,.4)"></div><div class="slab__side"></div><div class="slab__side2"></div></div>
-        </div>
-        <span class="stack__lbl" style="right:0;top:16%"><b>04</b> Finish</span>
-        <span class="stack__lbl" style="right:0;top:34%"><b>03</b> Edge band</span>
-        <span class="stack__lbl" style="right:0;top:52%"><b>02</b> Laminate</span>
-        <span class="stack__lbl" style="right:0;top:70%"><b>01</b> Carcass board</span>
-      </div>
+      <figure class="stack xsec" aria-labelledby="xsec-cap">
+        <svg class="xsec__wide" viewBox="0 0 720 290" role="img" aria-label="Cross-section of a board: a wood core with laminate pressed onto the top and bottom faces, and edge banding sealing the exposed edge.">
+          <defs><pattern id="core-w" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(6)"><rect width="16" height="16" fill="#6E5443"/><path d="M0 5h16M0 12h16" stroke="#5A4335" stroke-width="1.4"/></pattern></defs>
+          <g class="xsec__core"><rect x="120" y="118" width="440" height="66" fill="url(#core-w)"/></g>
+          <g class="xsec__top"><rect x="120" y="108" width="440" height="10" fill="#F4F0E9"/></g>
+          <g class="xsec__bot"><rect x="120" y="184" width="440" height="10" fill="#F4F0E9"/></g>
+          <g class="xsec__edge"><rect x="560" y="108" width="10" height="86" fill="#A58869"/></g>
+          <g class="xsec__lbl" fill="none" stroke="#C9C1B6" stroke-width="1"><path d="M190 108V64"/><path d="M565 108V64"/><path d="M330 152V238"/><path d="M470 194V238"/></g>
+          <g class="xsec__lbl" fill="#C9C1B6"><circle cx="190" cy="108" r="2.5"/><circle cx="565" cy="108" r="2.5"/><circle cx="330" cy="152" r="2.5"/><circle cx="470" cy="194" r="2.5"/></g>
+          <g class="xsec__lbl xsec__txt" text-anchor="middle"><text x="190" y="52">LAMINATE</text><text x="565" y="52">EDGE BAND</text><text x="330" y="258">BOARD CORE</text><text x="470" y="258">LAMINATE</text></g>
+        </svg>
+        <svg class="xsec__tall" viewBox="0 0 360 330" role="img" aria-label="Cross-section of a board: a wood core with laminate pressed onto the top and bottom faces, and edge banding sealing the exposed edge.">
+          <defs><pattern id="core-t" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(6)"><rect width="14" height="14" fill="#6E5443"/><path d="M0 4h14M0 10h14" stroke="#5A4335" stroke-width="1.3"/></pattern></defs>
+          <g class="xsec__core"><rect x="24" y="130" width="216" height="70" fill="url(#core-t)"/></g>
+          <g class="xsec__top"><rect x="24" y="120" width="216" height="10" fill="#F4F0E9"/></g>
+          <g class="xsec__bot"><rect x="24" y="200" width="216" height="10" fill="#F4F0E9"/></g>
+          <g class="xsec__edge"><rect x="240" y="120" width="10" height="90" fill="#A58869"/></g>
+          <g class="xsec__lbl" fill="none" stroke="#C9C1B6" stroke-width="1"><path d="M70 120V76"/><path d="M245 120V76"/><path d="M200 165H268"/><path d="M70 210V254"/></g>
+          <g class="xsec__lbl" fill="#C9C1B6"><circle cx="70" cy="120" r="2.5"/><circle cx="245" cy="120" r="2.5"/><circle cx="200" cy="165" r="2.5"/><circle cx="70" cy="210" r="2.5"/></g>
+          <g class="xsec__lbl xsec__txt"><text x="24" y="64">LAMINATE</text><text x="245" y="64" text-anchor="middle">EDGE BAND</text><text x="274" y="160">BOARD</text><text x="274" y="178">CORE</text><text x="24" y="276">LAMINATE</text></g>
+        </svg>
+        <figcaption id="xsec-cap">Laminate is pressed onto both faces of the board, and edge banding seals the exposed edge. Both are done in our factory.</figcaption>
+      </figure>
     </div>
-    <ol class="process">
-      <span class="process__bar" aria-hidden="true"><i></i></span>
-      <li class="step" data-reveal><span class="label">01</span><h3>Visit &amp; measure</h3><p>We see your space, understand how you use it and take exact measurements.</p></li>
-      <li class="step" data-reveal style="--i:1"><span class="label">02</span><h3>Design</h3><p>Layouts, materials and finishes, worked out with you.</p></li>
-      <li class="step" data-reveal style="--i:2"><span class="label">03</span><h3>Make</h3><p>Built in our factory — cut, laminated, edge-banded and finished in-house.</p></li>
-      <li class="step" data-reveal style="--i:3"><span class="label">04</span><h3>Install</h3><p>Fitted on site by our own team.</p></li>
-    </ol>
+    <div class="process"><span class="process__bar" aria-hidden="true"><i></i></span><ol class="process__list">
+      <li class="step" data-reveal><span class="label">1</span><h3>Visit &amp; measure</h3><p>We see your space, understand how you use it and take exact measurements.</p></li>
+      <li class="step" data-reveal style="--i:1"><span class="label">2</span><h3>Design</h3><p>Layouts, materials and finishes, worked out with you.</p></li>
+      <li class="step" data-reveal style="--i:2"><span class="label">3</span><h3>Make</h3><p>Built in our factory — cut, laminated, edge-banded and finished in-house.</p></li>
+      <li class="step" data-reveal style="--i:3"><span class="label">4</span><h3>Install</h3><p>Fitted on site by our own team.</p></li>
+    </ol></div>
   </div>
 </section>
 
 <!-- 4 · WORK -->
 <section class="section" id="work" data-theme="light" data-track aria-labelledby="work-h">
   <div class="wrap work__head">
-    <div><span class="kicker" data-reveal>Selected work</span><h2 id="work-h" class="h-display lines" style="margin-top:1.5rem"><span class="ln"><span>Spaces we’ve</span></span><span class="ln"><span style="--i:1"><em class="accent">built.</em></span></span></h2></div>
-    <div class="work__ctrl"><a class="link" href="projects.html">All projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a><button class="iconbtn" data-prev aria-label="Previous projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12H5"/><path d="m11 6-6 6 6 6"/></svg></button><button class="iconbtn" data-next aria-label="Next projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></button></div>
+    <div><h2 id="work-h" class="h-display lines"><span class="ln"><span>Spaces we’ve</span></span><span class="ln"><span style="--i:1">built.</span></span></h2></div>
+    <div class="work__ctrl"><a class="link" href="projects.html">All projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a><button type="button" class="iconbtn" data-prev aria-label="Previous projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 12H5"/><path d="m11 6-6 6 6 6"/></svg></button><button type="button" class="iconbtn" data-next aria-label="Next projects"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></button></div>
   </div>
   <div class="track">
     <a class="card" href="projects/sunlit-corporate-office.html" data-cats="commercial">
@@ -189,7 +187,7 @@
       <div class="card__body"><div><h3>An operations office with a prayer niche</h3><span class="label">Corporate &amp; commercial · Office fit-out &amp; joinery</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/family-home.html" data-cats="residential kitchens furniture">
-      <div class="card__img"><img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-family-home"></div>
+      <div class="card__img"><img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1536" height="1024" loading="lazy" decoding="async" style="view-transition-name:p-family-home"></div>
       <div class="card__body"><div><h3>A complete family home</h3><span class="label">Residential &amp; villas · Full-home interior design &amp; build</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/open-plan-home.html" data-cats="residential kitchens furniture">
@@ -197,7 +195,7 @@
       <div class="card__body"><div><h3>An open-plan home with an island kitchen</h3><span class="label">Residential &amp; villas · Interior design &amp; build</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/sage-kitchen.html" data-cats="kitchens">
-      <div class="card__img"><img src="assets/img/k1-a-1600.webp" srcset="assets/img/k1-a-800.webp 800w, assets/img/k1-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="L-shaped kitchen with sage lower cabinets, cream uppers and a black granite counter" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-sage-kitchen"></div>
+      <div class="card__img"><img src="assets/img/k1-a-1600.webp" srcset="assets/img/k1-a-800.webp 800w, assets/img/k1-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="L-shaped kitchen with sage lower cabinets, cream uppers and a black granite counter" width="1536" height="1024" loading="lazy" decoding="async" style="view-transition-name:p-sage-kitchen"></div>
       <div class="card__body"><div><h3>A sage green kitchen</h3><span class="label">Modular kitchens · Modular kitchen</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/beige-l-kitchen.html" data-cats="kitchens">
@@ -205,15 +203,15 @@
       <div class="card__body"><div><h3>A warm beige L-shaped kitchen</h3><span class="label">Modular kitchens · Modular kitchen</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/grey-island-kitchen.html" data-cats="kitchens">
-      <div class="card__img"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-grey-island-kitchen"></div>
+      <div class="card__img"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1536" height="1024" loading="lazy" decoding="async" style="view-transition-name:p-grey-island-kitchen"></div>
       <div class="card__body"><div><h3>A grey island kitchen</h3><span class="label">Modular kitchens · Modular kitchen</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/graphite-kitchens.html" data-cats="kitchens">
-      <div class="card__img"><img src="assets/img/k4-a-1600.webp" srcset="assets/img/k4-a-800.webp 800w, assets/img/k4-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Graphite L-shaped kitchen with a tall appliance unit and under-cabinet lighting" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-graphite-kitchens"></div>
+      <div class="card__img"><img src="assets/img/k4-a-1600.webp" srcset="assets/img/k4-a-800.webp 800w, assets/img/k4-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Graphite L-shaped kitchen with a tall appliance unit and under-cabinet lighting" width="1535" height="1024" loading="lazy" decoding="async" style="view-transition-name:p-graphite-kitchens"></div>
       <div class="card__body"><div><h3>Graphite modular kitchens</h3><span class="label">Modular kitchens · Modular kitchens</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
     <a class="card" href="projects/pooja-rooms.html" data-cats="furniture residential">
-      <div class="card__img"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-pooja-rooms"></div>
+      <div class="card__img"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1536" height="1024" loading="lazy" decoding="async" style="view-transition-name:p-pooja-rooms"></div>
       <div class="card__body"><div><h3>Pooja rooms in wood and light</h3><span class="label">Furniture &amp; woodwork · Custom woodwork</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a></div>
   <div class="progress" aria-hidden="true"><i></i></div>
@@ -223,7 +221,7 @@
 <section class="section trav" data-theme="light" aria-labelledby="mat-h">
   <div class="wrap">
     <div class="split" style="margin-bottom:clamp(3rem,6vw,5rem)">
-      <div class="split__l"><span class="kicker" data-reveal>Materials &amp; finishes</span><h2 id="mat-h" class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>See it together</span></span><span class="ln"><span style="--i:1">before it’s <em class="accent">made.</em></span></span></h2></div>
+      <div class="split__l"><span class="kicker" data-reveal>Materials &amp; finishes</span><h2 id="mat-h" class="h1 lines" style="margin-top:1.5rem"><span class="ln"><span>See it together</span></span><span class="ln"><span style="--i:1">before it’s made.</span></span></h2></div>
       <div class="split__r" style="align-self:end"><p class="lead" data-reveal>Shutters, counters, handles and light change a kitchen completely. Try a few combinations, send us the one you like, and we’ll bring real samples to your site.</p><a class="link" href="materials.html" style="margin-top:1.5rem" data-reveal>Materials &amp; finishes <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a></div>
     </div>
     
@@ -238,7 +236,7 @@
   <section class="section dark cta" data-theme="dark" aria-labelledby="cta-h">
     <div class="wrap">
       <div class="cta__grid">
-        <h2 id="cta-h" class="h-display lines"><span class="ln"><span>Let’s design</span></span><span class="ln"><span style="--i:1">your <em class="accent">space.</em></span></span></h2>
+        <h2 id="cta-h" class="h-display lines"><span class="ln"><span>Let’s design</span></span><span class="ln"><span style="--i:1">your space.</span></span></h2>
         <div class="cta__side" data-reveal>
           <p class="lead">Tell us about your home, office or kitchen. We’ll visit, measure and talk it through with you.</p>
           <a class="btn btn--solid" href="contact.html">Start a project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></a>
@@ -246,8 +244,8 @@
       </div>
       
     <div class="contact-list">
-      <a href="tel:+919840190449"><span class="label">Call</span><strong>+91 98401 90449<br>+91 98410 90448</strong></a>
-      <a href="https://wa.me/919840190449" target="_blank" rel="noopener"><span class="label">WhatsApp</span><strong>+91 98401 90449</strong></a>
+      <a href="tel:+919840190449"><span class="label">Call</span><strong>+91&nbsp;98401&nbsp;90449<br>+91&nbsp;98410&nbsp;90448</strong></a>
+      <a href="https://wa.me/919840190449" target="_blank" rel="noopener"><span class="label">WhatsApp</span><strong>+91&nbsp;98401&nbsp;90449</strong></a>
       <a href="mailto:gmmmodular@gmail.com"><span class="label">Email</span><strong>gmmmodular@gmail.com</strong></a>
       <a href="https://www.google.com/maps/search/?api=1&amp;query=GM%20Modulars%2C%207%2F137%20Kundrathur%20Main%20Road%2C%20Kovur%2C%20Chennai%20600128" target="_blank" rel="noopener"><span class="label">Visit</span><strong>7/137, Ground Floor, Kundrathur Main Road, Kovur, Chennai 600 128</strong></a>
     </div>
@@ -260,7 +258,7 @@
       <div class="ftr__brand"><a href="index.html" style="display:inline-block"><svg class="logo-hz" viewBox="0 0 1674.5 319.3" role="img" aria-label="GM Modulars"><defs><clipPath id="mc10"><polygon points="385.09,150 385.09,265 407,265 539,397 539,500 770,500 770,150"/></clipPath></defs><g fill-rule="evenodd" transform="translate(-100 -169.914)"><path d="M 202.632812 169.914062 L 425 169.914062 L 539.035156 283.949219 L 653.070312 169.914062 L 750 169.914062 L 750 489.210938 L 670.175781 489.210938 L 670.175781 265.703125 L 539.035156 396.84375 L 391.929688 249.738281 L 202.632812 249.738281 C 190.035156 249.738281 179.824219 259.949219 179.824219 272.542969 L 179.824219 386.578125 C 179.824219 399.175781 190.035156 409.386719 202.632812 409.386719 L 385.085938 409.386719 L 385.085938 369.472656 L 282.457031 369.472656 L 282.457031 289.648438 L 407.894531 289.648438 L 464.914062 346.667969 L 464.914062 489.210938 L 202.632812 489.210938 C 145.949219 489.210938 100 443.261719 100 386.578125 L 100 272.542969 C 100 215.863281 145.949219 169.914062 202.632812 169.914062 Z M 202.632812 169.914062 "/><g transform="translate(830 409.414) scale(1.7236) translate(-151 -537.9)"><path d="M 151.316406 584.207031 L 151.316406 537.898438 L 159.121094 537.898438 L 174.136719 569.386719 L 189.023438 537.898438 L 196.894531 537.898438 L 196.894531 584.207031 L 190.28125 584.207031 L 190.28125 549.609375 L 176.652344 578.121094 L 171.558594 578.121094 L 157.929688 549.808594 L 157.929688 584.207031 Z M 151.316406 584.207031 "/><path d="M 254.667969 585 C 250.390625 585 246.640625 583.996094 243.421875 581.988281 C 240.203125 579.984375 237.679688 577.183594 235.847656 573.589844 C 234.019531 569.996094 233.101562 565.816406 233.101562 561.050781 C 233.101562 556.332031 234.019531 552.175781 235.847656 548.582031 C 237.679688 544.988281 240.203125 542.175781 243.421875 540.148438 C 246.640625 538.121094 250.390625 537.105469 254.667969 537.105469 C 258.992188 537.105469 262.773438 538.121094 266.011719 540.148438 C 269.253906 542.175781 271.769531 544.988281 273.554688 548.582031 C 275.339844 552.175781 276.234375 556.332031 276.234375 561.050781 C 276.234375 565.816406 275.339844 569.996094 273.554688 573.589844 C 271.769531 577.183594 269.253906 579.984375 266.011719 581.988281 C 262.773438 583.996094 258.992188 585 254.667969 585 Z M 254.667969 579.113281 C 257.667969 579.113281 260.28125 578.386719 262.507812 576.929688 C 264.734375 575.472656 266.453125 573.402344 267.667969 570.710938 C 268.878906 568.019531 269.488281 564.800781 269.488281 561.050781 C 269.488281 557.304688 268.878906 554.085938 267.667969 551.394531 C 266.453125 548.703125 264.734375 546.640625 262.507812 545.210938 C 260.28125 543.777344 257.667969 543.058594 254.667969 543.058594 C 251.714844 543.058594 249.121094 543.777344 246.894531 545.210938 C 244.667969 546.640625 242.9375 548.703125 241.703125 551.394531 C 240.46875 554.085938 239.851562 557.304688 239.851562 561.050781 C 239.851562 564.800781 240.46875 568.019531 241.703125 570.710938 C 242.9375 573.402344 244.667969 575.472656 246.894531 576.929688 C 249.121094 578.386719 251.714844 579.113281 254.667969 579.113281 Z M 254.667969 579.113281 "/><path d="M 312.441406 584.207031 L 312.441406 537.898438 L 324.945312 537.898438 C 330.324219 537.898438 334.769531 538.847656 338.273438 540.742188 C 341.78125 542.640625 344.382812 545.320312 346.082031 548.78125 C 347.777344 552.242188 348.628906 556.355469 348.628906 561.117188 C 348.628906 565.882812 347.777344 569.984375 346.082031 573.421875 C 344.382812 576.863281 341.78125 579.519531 338.273438 581.394531 C 334.769531 583.269531 330.324219 584.207031 324.945312 584.207031 Z M 319.058594 578.648438 L 324.679688 578.648438 C 328.914062 578.648438 332.289062 577.945312 334.800781 576.53125 C 337.316406 575.121094 339.113281 573.105469 340.191406 570.480469 C 341.273438 567.855469 341.8125 564.734375 341.8125 561.117188 C 341.8125 557.457031 341.273438 554.304688 340.191406 551.660156 C 339.113281 549.011719 337.316406 546.984375 334.800781 545.574219 C 332.289062 544.160156 328.914062 543.457031 324.679688 543.457031 L 319.058594 543.457031 Z M 319.058594 578.648438 "/><path d="M 402.296875 585 C 399.078125 585 396.148438 584.347656 393.5 583.046875 C 390.855469 581.746094 388.75 579.761719 387.183594 577.09375 C 385.617188 574.425781 384.835938 571.019531 384.835938 566.875 L 384.835938 537.898438 L 391.449219 537.898438 L 391.449219 566.941406 C 391.449219 569.71875 391.902344 572 392.804688 573.785156 C 393.710938 575.574219 395 576.894531 396.675781 577.757812 C 398.351562 578.617188 400.269531 579.046875 402.429688 579.046875 C 404.679688 579.046875 406.621094 578.617188 408.253906 577.757812 C 409.882812 576.894531 411.152344 575.574219 412.054688 573.785156 C 412.960938 572 413.414062 569.71875 413.414062 566.941406 L 413.414062 537.898438 L 420.027344 537.898438 L 420.027344 566.875 C 420.027344 571.019531 419.234375 574.425781 417.644531 577.09375 C 416.058594 579.761719 413.929688 581.746094 411.261719 583.046875 C 408.59375 584.347656 405.605469 585 402.296875 585 Z M 402.296875 585 "/><path d="M 456.234375 584.207031 L 456.234375 537.898438 L 462.851562 537.898438 L 462.851562 578.980469 L 484.019531 578.980469 L 484.019531 584.207031 Z M 456.234375 584.207031 "/><path d="M 520.226562 584.207031 L 537.226562 537.898438 L 544.4375 537.898438 L 561.441406 584.207031 L 554.363281 584.207031 L 550.324219 572.761719 L 531.207031 572.761719 L 527.171875 584.207031 Z M 548.472656 567.46875 L 540.800781 545.835938 L 533.125 567.46875 Z M 548.472656 567.46875 "/><path d="M 597.648438 584.207031 L 597.648438 537.898438 L 613.324219 537.898438 C 616.984375 537.898438 619.984375 538.515625 622.320312 539.75 C 624.660156 540.984375 626.390625 542.628906 627.515625 544.679688 C 628.640625 546.730469 629.203125 549.058594 629.203125 551.660156 C 629.203125 554.128906 628.640625 556.410156 627.515625 558.503906 C 626.390625 560.601562 624.636719 562.265625 622.257812 563.5 C 621.507812 563.941406 620.667969 564.292969 619.742188 564.558594 L 629.664062 584.207031 L 621.992188 584.207031 L 612.863281 565.417969 L 604.261719 565.417969 L 604.261719 584.207031 Z M 604.261719 560.390625 L 612.929688 560.390625 C 616.191406 560.390625 618.585938 559.585938 620.105469 557.976562 C 621.628906 556.367188 622.386719 554.304688 622.386719 551.792969 C 622.386719 549.234375 621.636719 547.203125 620.140625 545.707031 C 618.640625 544.207031 616.214844 543.457031 612.863281 543.457031 L 604.261719 543.457031 Z M 604.261719 560.390625 "/><path d="M 682.808594 585 C 679.457031 585 676.5 584.394531 673.941406 583.179688 C 671.386719 581.96875 669.402344 580.257812 667.988281 578.054688 C 666.578125 575.847656 665.871094 573.269531 665.871094 570.3125 L 672.820312 570.3125 C 672.820312 571.988281 673.214844 573.523438 674.007812 574.910156 C 674.804688 576.300781 675.9375 577.402344 677.417969 578.21875 C 678.894531 579.035156 680.691406 579.441406 682.808594 579.441406 C 684.660156 579.441406 686.257812 579.132812 687.605469 578.515625 C 688.949219 577.898438 689.972656 577.050781 690.679688 575.96875 C 691.386719 574.890625 691.738281 573.644531 691.738281 572.234375 C 691.738281 570.734375 691.394531 569.464844 690.710938 568.429688 C 690.027344 567.390625 689.09375 566.519531 687.902344 565.816406 C 686.710938 565.109375 685.308594 564.46875 683.699219 563.898438 C 682.089844 563.324219 680.359375 562.75 678.507812 562.175781 C 674.625 560.941406 671.78125 559.367188 669.972656 557.449219 C 668.164062 555.527344 667.261719 553.046875 667.261719 550.003906 C 667.261719 547.402344 667.867188 545.144531 669.082031 543.222656 C 670.292969 541.304688 672.023438 539.804688 674.273438 538.726562 C 676.523438 537.644531 679.148438 537.105469 682.144531 537.105469 C 685.1875 537.105469 687.824219 537.65625 690.050781 538.757812 C 692.277344 539.863281 694.03125 541.382812 695.308594 543.324219 C 696.589844 545.265625 697.25 547.535156 697.296875 550.136719 L 690.28125 550.136719 C 690.28125 548.945312 689.972656 547.777344 689.355469 546.632812 C 688.738281 545.484375 687.8125 544.546875 686.578125 543.820312 C 685.34375 543.09375 683.820312 542.726562 682.015625 542.726562 C 680.515625 542.683594 679.167969 542.925781 677.976562 543.457031 C 676.789062 543.984375 675.851562 544.757812 675.167969 545.769531 C 674.484375 546.785156 674.140625 548 674.140625 549.410156 C 674.140625 550.820312 674.449219 551.957031 675.066406 552.816406 C 675.683594 553.675781 676.554688 554.414062 677.679688 555.03125 C 678.804688 555.648438 680.140625 556.210938 681.683594 556.71875 C 683.226562 557.226562 684.925781 557.789062 686.777344 558.40625 C 689.027344 559.15625 691.054688 560.070312 692.863281 561.152344 C 694.671875 562.230469 696.09375 563.621094 697.128906 565.320312 C 698.167969 567.015625 698.683594 569.191406 698.683594 571.835938 C 698.683594 574.128906 698.089844 576.269531 696.898438 578.253906 C 695.707031 580.238281 693.941406 581.859375 691.605469 583.113281 C 689.269531 584.371094 686.335938 585 682.808594 585 Z M 682.808594 585 "/></g></g><path class="m" fill-rule="evenodd" clip-path="url(#mc10)" transform="translate(-100 -169.914)" d="M 202.632812 169.914062 L 425 169.914062 L 539.035156 283.949219 L 653.070312 169.914062 L 750 169.914062 L 750 489.210938 L 670.175781 489.210938 L 670.175781 265.703125 L 539.035156 396.84375 L 391.929688 249.738281 L 202.632812 249.738281 C 190.035156 249.738281 179.824219 259.949219 179.824219 272.542969 L 179.824219 386.578125 C 179.824219 399.175781 190.035156 409.386719 202.632812 409.386719 L 385.085938 409.386719 L 385.085938 369.472656 L 282.457031 369.472656 L 282.457031 289.648438 L 407.894531 289.648438 L 464.914062 346.667969 L 464.914062 489.210938 L 202.632812 489.210938 C 145.949219 489.210938 100 443.261719 100 386.578125 L 100 272.542969 C 100 215.863281 145.949219 169.914062 202.632812 169.914062 Z M 202.632812 169.914062 "/></svg></a><p>Interior design and build from Chennai, with our own factory for modular kitchens, furniture, doors and woodwork.</p></div>
       <div class="ftr__col"><h2>Services</h2><ul><li><a href="residential.html">Residential & villas</a></li><li><a href="commercial.html">Corporate & commercial</a></li><li><a href="kitchens.html">Modular kitchens</a></li><li><a href="furniture.html">Furniture & woodwork</a></li></ul></div>
       <div class="ftr__col"><h2>Studio</h2><ul><li><a href="projects.html">Projects</a></li><li><a href="materials.html">Materials &amp; finishes</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Start a project</a></li></ul></div>
-      <div class="ftr__contact ftr__col"><h2>Contact</h2><ul><li><a href="tel:+919840190449">+91 98401 90449</a> · <a href="tel:+919841090448">+91 98410 90448</a></li><li><a href="mailto:gmmmodular@gmail.com">gmmmodular@gmail.com</a></li><li style="color:var(--ash)">7/137, Ground Floor, Kundrathur Main Road, Kovur, Chennai 600 128</li></ul></div>
+      <div class="ftr__contact ftr__col"><h2>Contact</h2><ul><li><a href="tel:+919840190449">+91&nbsp;98401&nbsp;90449</a> · <a href="tel:+919841090448">+91&nbsp;98410&nbsp;90448</a></li><li><a href="mailto:gmmmodular@gmail.com">gmmmodular@gmail.com</a></li><li style="color:var(--ash)">7/137, Ground Floor, Kundrathur Main Road, Kovur, Chennai 600 128</li></ul></div>
     </div>
     <div class="ftr__base"><span>© <span data-year>2026</span> GM Modulars</span><span>Chennai · Tamil Nadu</span></div>
   </div>
