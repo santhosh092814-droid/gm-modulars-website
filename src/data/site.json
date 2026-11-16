@@ -1,91 +1,545 @@
 {
-  "company": {
-    "name": "GM Modulars",
-    "formerly": "Maps Modular",
-    "tagline": "Interior design & build — Chennai",
-    "years": "20+",
-    "phones": ["+91 98401 90449", "+91 98410 90448"],
-    "whatsapp": "919840190449",
-    "email": "gmmmodular@gmail.com",
-    "address": "7/137, Ground Floor, Kundrathur Main Road, Kovur, Chennai 600 128",
-    "addressShort": "Kundrathur Main Road, Kovur, Chennai",
-    "mapsQuery": "GM Modulars, 7/137 Kundrathur Main Road, Kovur, Chennai 600128",
-    "founder": "GM Muthu",
-    "founderTitle": "Founder & Managing Head",
-    "siteUrl": "https://santhosh092814-droid.github.io/gm-modulars-website"
-  },
-  "services": [
-    {
-      "slug": "residential", "page": "residential.html", "num": "01",
-      "name": "Residential & villas", "short": "Residential",
-      "img": "residential",
-      "intro": "Homes and villas planned around how you live — then built and finished by the people who drew them.",
-      "caps": [["Full-home interiors", "Design + build"], ["Villas & independent houses", "Plan to handover"], ["Living, dining & bedrooms", "Joinery"]]
-    },
-    {
-      "slug": "commercial", "page": "commercial.html", "num": "02",
-      "name": "Corporate & commercial", "short": "Commercial",
-      "img": "corporate",
-      "intro": "Offices, receptions and commercial spaces that work hard every day and still present your business well.",
-      "caps": [["Corporate offices", "Workplace"], ["Receptions & meeting rooms", "First impressions"], ["Retail & commercial spaces", "Fit-out"]]
-    },
-    {
-      "slug": "kitchens", "page": "kitchens.html", "num": "03",
-      "name": "Modular kitchens", "short": "Kitchens",
-      "img": "kitchen",
-      "intro": "Our core craft. Kitchens made in our own factory, with laminates, edge banding and finishing done in-house.",
-      "caps": [["Layout planning", "Measured on site"], ["Factory-made cabinets", "In-house"], ["Laminate, edge band & finish", "In-house"]]
-    },
-    {
-      "slug": "furniture", "page": "furniture.html", "num": "04",
-      "name": "Furniture & woodwork", "short": "Furniture",
-      "img": "furniture",
-      "intro": "Modular furniture, wooden doors and custom woodwork, machined and finished in our workshop.",
-      "caps": [["Modular furniture", "Factory-made"], ["Wooden doors", "Machined in-house"], ["Custom woodwork", "Made to measure"]]
-    }
+ "company": {
+  "name": "GM Modulars",
+  "formerly": "Maps Modular",
+  "tagline": "Interior design & build — Chennai",
+  "years": "20+",
+  "phones": [
+   "+91 98401 90449",
+   "+91 98410 90448"
   ],
-  "projects": [
-    {
-      "slug": "residential-villa", "category": "residential", "categoryName": "Residential & villas",
-      "title": "Villa interior", "location": "Chennai", "year": "—", "scope": "Full interior design & build",
-      "img": "residential", "gallery": ["residential", "furniture", "kitchen"],
-      "placeholder": true
-    },
-    {
-      "slug": "corporate-office", "category": "commercial", "categoryName": "Corporate & commercial",
-      "title": "Corporate office", "location": "Chennai", "year": "—", "scope": "Office fit-out & joinery",
-      "img": "corporate", "gallery": ["corporate", "signage", "stationery"],
-      "placeholder": true
-    },
-    {
-      "slug": "modular-kitchen", "category": "kitchens", "categoryName": "Modular kitchens",
-      "title": "Walnut island kitchen", "location": "Chennai", "year": "—", "scope": "Modular kitchen, factory-made",
-      "img": "kitchen", "gallery": ["kitchen", "residential", "furniture"],
-      "placeholder": true
-    },
-    {
-      "slug": "living-furniture", "category": "furniture", "categoryName": "Furniture & woodwork",
-      "title": "Living room furniture", "location": "Chennai", "year": "—", "scope": "Custom furniture & woodwork",
-      "img": "furniture", "gallery": ["furniture", "residential", "kitchen"],
-      "placeholder": true
-    }
-  ],
-  "finishes": {
-    "shutter": [
-      {"id": "walnut", "name": "Walnut", "c": "#5E4535", "g": "#4A3528"},
-      {"id": "oak", "name": "Natural oak", "c": "#B8956B", "g": "#A07F58"},
-      {"id": "graphite", "name": "Graphite matte", "c": "#3A3835", "g": "#302E2B"},
-      {"id": "ivory", "name": "Ivory matte", "c": "#EAE3D6", "g": "#DDD5C6"},
-      {"id": "stone", "name": "Stone grey", "c": "#A8A196", "g": "#968F84"}
+  "whatsapp": "919840190449",
+  "email": "gmmmodular@gmail.com",
+  "address": "7/137, Ground Floor, Kundrathur Main Road, Kovur, Chennai 600 128",
+  "addressShort": "Kundrathur Main Road, Kovur, Chennai",
+  "mapsQuery": "GM Modulars, 7/137 Kundrathur Main Road, Kovur, Chennai 600128",
+  "founder": "GM Muthu",
+  "founderTitle": "Founder & Managing Head",
+  "siteUrl": "https://santhosh092814-droid.github.io/gm-modulars-website"
+ },
+ "services": [
+  {
+   "slug": "residential",
+   "page": "residential.html",
+   "num": "01",
+   "name": "Residential & villas",
+   "short": "Residential",
+   "img": "h1-living",
+   "intro": "Homes and villas planned around how you live — then built and finished by the people who drew them.",
+   "caps": [
+    [
+     "Full-home interiors",
+     "Design + build"
     ],
-    "counter": [
-      {"id": "travertine", "name": "Travertine", "c": "#E2D6C3"},
-      {"id": "charcoal", "name": "Charcoal stone", "c": "#2A2826"},
-      {"id": "white", "name": "White quartz", "c": "#F4F2EE"}
+    [
+     "Villas & independent houses",
+     "Plan to handover"
     ],
-    "hardware": [
-      {"id": "bronze", "name": "Brushed bronze", "c": "#A58869"},
-      {"id": "black", "name": "Matte black", "c": "#1A1A1A"}
+    [
+     "Living, dining & bedrooms",
+     "Joinery"
     ]
+   ]
+  },
+  {
+   "slug": "commercial",
+   "page": "commercial.html",
+   "num": "02",
+   "name": "Corporate & commercial",
+   "short": "Commercial",
+   "img": "o1-reception",
+   "intro": "Offices, receptions and commercial spaces that work hard every day and still present your business well.",
+   "caps": [
+    [
+     "Corporate offices",
+     "Workplace"
+    ],
+    [
+     "Receptions & meeting rooms",
+     "First impressions"
+    ],
+    [
+     "Retail & commercial spaces",
+     "Fit-out"
+    ]
+   ]
+  },
+  {
+   "slug": "kitchens",
+   "page": "kitchens.html",
+   "num": "03",
+   "name": "Modular kitchens",
+   "short": "Kitchens",
+   "img": "k3-a",
+   "intro": "Our core craft. Kitchens made in our own factory, with laminates, edge banding and finishing done in-house.",
+   "caps": [
+    [
+     "Layout planning",
+     "Measured on site"
+    ],
+    [
+     "Factory-made cabinets",
+     "In-house"
+    ],
+    [
+     "Laminate, edge band & finish",
+     "In-house"
+    ]
+   ]
+  },
+  {
+   "slug": "furniture",
+   "page": "furniture.html",
+   "num": "04",
+   "name": "Furniture & woodwork",
+   "short": "Furniture",
+   "img": "f1-jali",
+   "intro": "Modular furniture, wooden doors and custom woodwork, machined and finished in our workshop.",
+   "caps": [
+    [
+     "Modular furniture",
+     "Factory-made"
+    ],
+    [
+     "Wooden doors",
+     "Machined in-house"
+    ],
+    [
+     "Custom woodwork",
+     "Made to measure"
+    ]
+   ]
   }
+ ],
+ "projects": [
+  {
+   "slug": "sunlit-corporate-office",
+   "cats": [
+    "commercial"
+   ],
+   "category": "commercial",
+   "categoryName": "Corporate & commercial",
+   "title": "A warm, sunlit corporate office",
+   "spaces": "Reception · Director’s cabin · Workstations · Boardroom",
+   "scope": "Interior design & build",
+   "made": "Reception counter, storage walls, workstations, boardroom table",
+   "img": "o1-reception",
+   "gallery": [
+    "o1-reception",
+    "o1-cabin",
+    "o1-work",
+    "o1-board"
+   ],
+   "brief": "A growing company wanted an office that felt calm and welcoming rather than corporate and cold — one that made the most of a floor with generous windows and garden views.",
+   "needs": [
+    "A reception that makes a confident first impression",
+    "A private director’s cabin with plenty of storage",
+    "Open workstations with personal storage for every desk",
+    "A boardroom that seats the full leadership team"
+   ],
+   "approach": [
+    "We built the whole floor around warm, natural tones — travertine-coloured flooring, oak and cream laminates — with sage, terracotta and teal used sparingly as accents.",
+    "The reception counter is clad in walnut and backed by a stone-finish feature wall. In the cabin, a full-height storage wall with lit niches keeps files out of sight. Workstations carry built-in pedestals in sage and terracotta, and the boardroom table sits on a sculpted, angled base.",
+    "Every desk, counter and storage unit was made in our factory, with laminates and edge banding applied in-house."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "technology-office",
+   "cats": [
+    "commercial"
+   ],
+   "category": "commercial",
+   "categoryName": "Corporate & commercial",
+   "title": "A modern technology office",
+   "spaces": "Glass cabins · Workstations · Boardroom · MD cabin · Training room · Reception",
+   "scope": "Office fit-out & joinery",
+   "made": "Workstations, storage, panelling, display units, reception counter",
+   "img": "o2-open",
+   "gallery": [
+    "o2-open",
+    "o2-work",
+    "o2-board",
+    "o2-md",
+    "o2-training",
+    "o2-reception"
+   ],
+   "brief": "A technology company moving to a larger floor needed room for a growing team, with clear zones for focused work, meetings and training — while keeping the whole floor bright.",
+   "needs": [
+    "Glass cabins and meeting rooms that don’t block the light",
+    "Dense, comfortable workstation clusters with storage",
+    "A boardroom and an MD cabin with a premium finish",
+    "A training room that can be rearranged",
+    "A reception and waiting lounge for visitors"
+   ],
+   "approach": [
+    "Frameless glass partitions divide the floor without closing it in. A quiet palette of grey carpet and white surfaces lets walnut accents carry the warmth.",
+    "The boardroom is wrapped in walnut panelling with cove lighting; the MD cabin pairs a walnut desk with backlit display units. The training room uses movable desks and a green pin-up wall for workshops.",
+    "Workstations, storage, panelling and display joinery were made and finished in our own factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "industrial-creative-office",
+   "cats": [
+    "commercial"
+   ],
+   "category": "commercial",
+   "categoryName": "Corporate & commercial",
+   "title": "An industrial-style creative office",
+   "spaces": "Lounge · Café corner · Glass meeting room · Studio",
+   "scope": "Interior design & build",
+   "made": "Timber slat features, storage, workstations, planters",
+   "img": "o3-lounge",
+   "gallery": [
+    "o3-lounge",
+    "o3-cafe",
+    "o3-glass",
+    "o3-studio"
+   ],
+   "brief": "A creative team wanted a relaxed, open workplace where people could meet informally, brainstorm on the walls and still find a quiet corner to focus.",
+   "needs": [
+    "A lounge for informal meetings and breaks",
+    "A glass meeting room that stays connected to the floor",
+    "Collaborative workstations with whiteboard walls",
+    "Greenery and warmth to soften an exposed ceiling"
+   ],
+   "approach": [
+    "We kept the ceiling services exposed and paired them with warm timber slats, soft seating and planters, so the space feels like a studio rather than an office.",
+    "Black-framed glass defines the meeting room, whiteboard walls turn the studio into a working surface, and a small café corner gives people somewhere to step away.",
+    "Slat panels, storage and workstations were made in our factory to fit the floor exactly."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "compact-working-office",
+   "cats": [
+    "commercial"
+   ],
+   "category": "commercial",
+   "categoryName": "Corporate & commercial",
+   "title": "A compact working office",
+   "spaces": "Open office · Workstations · Conference room",
+   "scope": "Office fit-out",
+   "made": "Workstations, overhead storage, conference room panelling",
+   "img": "o4-open",
+   "gallery": [
+    "o4-open",
+    "o4-work",
+    "o4-conf"
+   ],
+   "brief": "A busy team needed to fit more people into a modest floor plate without the office feeling cramped.",
+   "needs": [
+    "As many workstations as the floor could comfortably hold",
+    "Overhead storage to keep desks clear",
+    "A conference room for client meetings"
+   ],
+   "approach": [
+    "Long workstation runs make efficient use of the floor, and overhead cabinets take storage off the desks.",
+    "The conference room gets a timber ceiling feature and wall panelling, with a glass partition that borrows light from the office.",
+    "All workstations and storage were built in our factory to the measured floor plan."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "operations-office",
+   "cats": [
+    "commercial"
+   ],
+   "category": "commercial",
+   "categoryName": "Corporate & commercial",
+   "title": "An operations office with a prayer niche",
+   "spaces": "Admin workstations · Records wall · Entrance niche",
+   "scope": "Office fit-out & joinery",
+   "made": "Storage cabinets, records shelving, slat panels, prayer niche",
+   "img": "o5-admin",
+   "gallery": [
+    "o5-admin",
+    "o5-records",
+    "o5-niche"
+   ],
+   "brief": "An operations team handling a lot of paperwork needed serious storage — and the owners wanted a calm prayer space at the entrance.",
+   "needs": [
+    "Generous cabinets and open shelving for files and records",
+    "Practical, durable workstations",
+    "A dedicated prayer niche that greets people as they arrive"
+   ],
+   "approach": [
+    "We lined the walls with a mix of grey cabinets and timber shelving, so records are organised and easy to reach.",
+    "At the entrance, a backlit Om niche sits within timber slats — a quiet, respectful moment before the working floor.",
+    "Cabinets, shelving and the niche were made and finished in our own factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "family-home",
+   "cats": [
+    "residential",
+    "kitchens",
+    "furniture"
+   ],
+   "category": "residential",
+   "categoryName": "Residential & villas",
+   "title": "A complete family home",
+   "spaces": "Living · Foyer · Kitchen · 4 bedrooms · Pooja room",
+   "scope": "Full-home interior design & build",
+   "made": "TV wall, foyer unit, kitchen, wardrobes, study desks, pooja room",
+   "img": "h1-living",
+   "gallery": [
+    "h1-living",
+    "h1-foyer",
+    "h1-kitchen",
+    "h1-master",
+    "h1-bed",
+    "h1-guest",
+    "h1-girl",
+    "h1-kid",
+    "h1-pooja"
+   ],
+   "brief": "A family moving into their new home wanted every room designed together — calm, light and full of storage — with each child’s room feeling like their own.",
+   "needs": [
+    "A living room with a feature TV wall and soft lighting",
+    "A foyer with seating and shoe storage",
+    "A kitchen with display and concealed storage",
+    "Full-height wardrobes in every bedroom",
+    "Personal rooms for the children, with study desks",
+    "A traditional pooja room"
+   ],
+   "approach": [
+    "We kept a quiet palette of cream, greige and walnut throughout, so the home reads as one. The living room centres on a marble-finish TV wall with a floating console and cove lighting.",
+    "The foyer combines a mirror, bench and tall shoe storage. Bedrooms each get full-height wardrobes with dresser niches; the girl’s room is in blush pink and the child’s room in sage, both with study desks. The pooja room has carved wooden doors and a temple mandapam.",
+    "Wardrobes, the kitchen, the TV wall and the pooja room joinery were all made in our factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "open-plan-home",
+   "cats": [
+    "residential",
+    "kitchens",
+    "furniture"
+   ],
+   "category": "residential",
+   "categoryName": "Residential & villas",
+   "title": "An open-plan home with an island kitchen",
+   "spaces": "Living · Dining · Island kitchen",
+   "scope": "Interior design & build",
+   "made": "TV unit, display shelving, island kitchen, slat screen",
+   "img": "h2-kitchen",
+   "gallery": [
+    "h2-kitchen",
+    "h2-living"
+   ],
+   "brief": "The owners wanted their kitchen, dining and living to work as one sociable space, so whoever is cooking stays part of the conversation.",
+   "needs": [
+    "An island kitchen open to dining and living",
+    "A TV unit with display shelving",
+    "A screen that separates without closing off"
+   ],
+   "approach": [
+    "A grey island with a white counter anchors the kitchen and looks straight onto the dining table and living room.",
+    "In the living room, a slatted timber TV unit with display shelves brings warmth, and timber slats screen the stair without blocking light.",
+    "The kitchen, TV unit and slat screen were made in our factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "sage-kitchen",
+   "cats": [
+    "kitchens"
+   ],
+   "category": "kitchens",
+   "categoryName": "Modular kitchens",
+   "title": "A sage green kitchen",
+   "spaces": "L-shaped kitchen",
+   "scope": "Modular kitchen",
+   "made": "Cabinets, shutters, tall unit",
+   "img": "k1-a",
+   "gallery": [
+    "k1-a",
+    "k1-b"
+   ],
+   "brief": "The homeowners wanted a kitchen with some colour — but soft enough to live with every day.",
+   "needs": [
+    "An efficient L-shaped layout",
+    "A tall unit for the fridge",
+    "Easy-clean, hard-wearing surfaces"
+   ],
+   "approach": [
+    "Sage lower cabinets are balanced by cream uppers and a black granite counter, with glass-front uppers to display everyday pieces.",
+    "Under-cabinet lighting keeps the counter bright, and a tall unit frames the fridge.",
+    "Every cabinet was made, laminated and edge-banded in our factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "beige-l-kitchen",
+   "cats": [
+    "kitchens"
+   ],
+   "category": "kitchens",
+   "categoryName": "Modular kitchens",
+   "title": "A warm beige L-shaped kitchen",
+   "spaces": "L-shaped kitchen with breakfast counter",
+   "scope": "Modular kitchen",
+   "made": "Cabinets, glass uppers, breakfast counter",
+   "img": "k2",
+   "gallery": [
+    "k2"
+   ],
+   "brief": "A family wanted a warm, welcoming kitchen with a spot for quick breakfasts.",
+   "needs": [
+    "An L-shaped layout around the window",
+    "A breakfast counter",
+    "Display storage for glassware"
+   ],
+   "approach": [
+    "Warm beige shutters, glass-front uppers and soft under-cabinet lighting give the kitchen a calm glow.",
+    "A breakfast counter extends the run, with a pendant light above.",
+    "Cabinets and counter joinery were made in our factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "grey-island-kitchen",
+   "cats": [
+    "kitchens"
+   ],
+   "category": "kitchens",
+   "categoryName": "Modular kitchens",
+   "title": "A grey island kitchen",
+   "spaces": "Island kitchen",
+   "scope": "Modular kitchen",
+   "made": "Island, cabinets, tall oven units",
+   "img": "k3-a",
+   "gallery": [
+    "k3-a",
+    "k3-b"
+   ],
+   "brief": "The owners wanted a modern kitchen with an island for prep and casual meals.",
+   "needs": [
+    "A central island with open shelving",
+    "Tall units for built-in oven and appliances",
+    "Plenty of drawer storage"
+   ],
+   "approach": [
+    "Grey shutters with a white counter keep the look clean and contemporary. The island adds prep space and open shelves.",
+    "Tall units house the built-in oven, and black glass uppers add depth.",
+    "The island and every cabinet were made in our factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "graphite-kitchens",
+   "cats": [
+    "kitchens"
+   ],
+   "category": "kitchens",
+   "categoryName": "Modular kitchens",
+   "title": "Graphite modular kitchens",
+   "spaces": "L-shaped and U-shaped kitchens",
+   "scope": "Modular kitchens",
+   "made": "Cabinets, tall appliance units, open shelving",
+   "img": "k4-a",
+   "gallery": [
+    "k4-a",
+    "k4-b"
+   ],
+   "brief": "Two busy households wanted hard-working kitchens with a dark, practical finish that hides everyday wear.",
+   "needs": [
+    "Maximum counter and storage space",
+    "A tall unit for microwave and appliances",
+    "Good task lighting"
+   ],
+   "approach": [
+    "Graphite shutters with dark stone counters give both kitchens a bold, durable finish.",
+    "One kitchen runs in a U-shape with an open shelf; the other in an L-shape with a tall appliance unit and under-cabinet lighting.",
+    "All cabinets were made and edge-banded in our factory."
+   ],
+   "location": "",
+   "year": ""
+  },
+  {
+   "slug": "pooja-rooms",
+   "cats": [
+    "furniture",
+    "residential"
+   ],
+   "category": "furniture",
+   "categoryName": "Furniture & woodwork",
+   "title": "Pooja rooms in wood and light",
+   "spaces": "Pooja space · Pooja cabinet",
+   "scope": "Custom woodwork",
+   "made": "Jali screens, timber battens, pooja cabinet",
+   "img": "f1-jali",
+   "gallery": [
+    "f1-jali",
+    "f1-cabinet"
+   ],
+   "brief": "Two families wanted a dedicated pooja space — one as a feature of the home, one fitted neatly into the dining area.",
+   "needs": [
+    "A screen that defines the pooja space but lets light through",
+    "Lighting that gives the shrine a warm glow",
+    "Storage for lamps and pooja items"
+   ],
+   "approach": [
+    "In the first home, a backlit jali screen and timber-batten ceiling frame a marble-finish wall. In the second, a compact cabinet with frosted glass doors and a lit shelf sits beside the dining area.",
+    "Both were machined and finished in our own workshop."
+   ],
+   "location": "",
+   "year": ""
+  }
+ ],
+ "images": {
+  "o1-reception": "Sunlit reception with a walnut-clad counter, travertine-tone feature wall and a lounge seating area",
+  "o1-cabin": "Director’s cabin with a cream desk, full-height storage wall with lit niches and garden views",
+  "o1-work": "Open workstations with sage and terracotta storage pedestals beside tall windows",
+  "o1-board": "Boardroom with a long walnut table on an angled base and a teal feature wall",
+  "o2-open": "Open-plan office with glass-partitioned cabins and rows of workstations",
+  "o2-work": "Workstation cluster with storage pedestals and walnut-faced shelving",
+  "o2-board": "Boardroom with walnut wall panelling, cove lighting and a long conference table",
+  "o2-md": "Managing director’s cabin with a walnut desk and backlit display units",
+  "o2-training": "Training room with flexible desks and a green pin-up wall",
+  "o2-reception": "Reception with a white stone counter, waiting lounge and glass meeting room behind",
+  "o3-lounge": "Office lounge with sofas, a round coffee table and plants under an exposed ceiling",
+  "o3-cafe": "Café corner with a round table, a timber-framed niche and glass meeting rooms",
+  "o3-glass": "Black-framed glass meeting room beside planters and open workstations",
+  "o3-studio": "Collaborative studio with whiteboard walls, timber slats and workstations",
+  "o4-open": "Open office with a timber-faced partition and long workstation runs",
+  "o4-work": "Compact workstations with screens and overhead storage cabinets",
+  "o4-conf": "Conference room with a timber ceiling feature, wall-mounted screen and glass partition",
+  "o5-admin": "Admin workstations with grey storage cabinets, shelving and a whiteboard",
+  "o5-records": "Records and storage wall in timber and grey with workstations in front",
+  "o5-niche": "Office entrance with timber slats and a backlit Om prayer niche",
+  "h1-living": "Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa",
+  "h1-foyer": "Foyer with a round mirror, cushioned bench and full-height shoe storage",
+  "h1-kitchen": "Greige modular kitchen with glass-front upper cabinets and a built-in oven",
+  "h1-master": "Master bedroom with full-height wardrobes, a dresser and an upholstered bed",
+  "h1-bed": "Bedroom with full-height cream wardrobes and a walnut loft cabinet",
+  "h1-guest": "Bedroom with a wall of grey wardrobes and a lit dresser niche",
+  "h1-girl": "Girl’s bedroom in blush pink with a study desk, shelves and wardrobe",
+  "h1-kid": "Child’s bedroom with a sage wardrobe, daybed with storage and a study desk",
+  "h1-pooja": "Pooja room with carved wooden doors, a temple mandapam and brass lamps",
+  "h2-living": "Open-plan living room with a slatted timber TV unit and display shelves",
+  "h2-kitchen": "Grey island kitchen with a white top, open to the dining and living areas",
+  "k1-a": "L-shaped kitchen with sage lower cabinets, cream uppers and a black granite counter",
+  "k1-b": "Sage and cream kitchen with a chimney hood, glass uppers and a tall fridge unit",
+  "k2": "Warm beige L-shaped kitchen with glass uppers, a breakfast counter and pendant light",
+  "k3-a": "Grey kitchen island with open shelves, a white counter and tall oven units",
+  "k3-b": "Grey modular kitchen with an island, built-in oven and black glass uppers",
+  "k4-a": "Graphite L-shaped kitchen with a tall appliance unit and under-cabinet lighting",
+  "k4-b": "Graphite U-shaped kitchen with an open shelf and dark stone counter",
+  "f1-jali": "Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall",
+  "f1-cabinet": "Compact pooja cabinet with frosted glass doors, lit shelf and storage below"
+ }
 }

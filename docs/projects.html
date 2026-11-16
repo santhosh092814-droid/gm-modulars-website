@@ -17,6 +17,9 @@
 <link rel="preload" href="assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
+<script>/* Open every page at the top. Embedded previews and some browsers keep the previous page's scroll position; Back/Forward and real #anchors still work. */
+(function(){function top(){var n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(n&&n.type==='back_forward')return;var h=location.hash.slice(1);if(h&&document.getElementById(h))return;window.scrollTo(0,0)}top();document.addEventListener('DOMContentLoaded',top);addEventListener('load',function(){top();setTimeout(top,60)});addEventListener('pageshow',function(e){if(!e.persisted)top()})})();</script>
+
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"GM Modulars","description":"Interior design and build company in Chennai with its own factory for modular kitchens, furniture, doors and woodwork.","telephone":"+919840190449","email":"gmmmodular@gmail.com","url":"https://santhosh092814-droid.github.io/gm-modulars-website","image":"https://santhosh092814-droid.github.io/gm-modulars-website/assets/img/og-image.png","address":{"@type":"PostalAddress","streetAddress":"7/137, Ground Floor, Kundrathur Main Road, Kovur","addressLocality":"Chennai","postalCode":"600128","addressRegion":"Tamil Nadu","addressCountry":"IN"},"areaServed":"Tamil Nadu"}</script>
 </head>
@@ -52,7 +55,6 @@
 </section>
 <section class="section" data-theme="light" style="padding-top:clamp(2rem,4vw,3rem)">
   <div class="wrap">
-    <div class="notice" data-reveal><span class="label">Note</span><span>The projects below are placeholders with illustrative images, showing how the portfolio will look. Each one becomes a real case study once GM Modulars project photographs are added.</span></div>
     <div class="filters" role="group" aria-label="Filter projects">
       <button class="filter" data-cat="all" aria-pressed="true">All</button>
       <button class="filter" data-cat="residential" aria-pressed="false">Residential</button>
@@ -61,21 +63,53 @@
       <button class="filter" data-cat="furniture" aria-pressed="false">Furniture</button>
     </div>
     <div class="pgrid">
-    <a class="card" href="projects/residential-villa.html" data-cat="residential">
-      <div class="card__img"><img src="assets/img/residential-1600.webp" srcset="assets/img/residential-800.webp 800w, assets/img/residential-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Living room with travertine fireplace wall, boucle sofas and a walnut coffee table" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-residential-villa"><span class="ph">Placeholder project</span></div>
-      <div class="card__body"><div><h3>Villa interior</h3><span class="label">Residential &amp; villas · Chennai</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    <a class="card" href="projects/sunlit-corporate-office.html" data-cats="commercial">
+      <div class="card__img"><img src="assets/img/o1-reception-1600.webp" srcset="assets/img/o1-reception-800.webp 800w, assets/img/o1-reception-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Sunlit reception with a walnut-clad counter, travertine-tone feature wall and a lounge seating area" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-sunlit-corporate-office"></div>
+      <div class="card__body"><div><h3>A warm, sunlit corporate office</h3><span class="label">Corporate &amp; commercial · Interior design &amp; build</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
-    <a class="card" href="projects/corporate-office.html" data-cat="commercial">
-      <div class="card__img"><img src="assets/img/corporate-1600.webp" srcset="assets/img/corporate-800.webp 800w, assets/img/corporate-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Boardroom with a long walnut table, upholstered chairs and glass partitions" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-corporate-office"><span class="ph">Placeholder project</span></div>
-      <div class="card__body"><div><h3>Corporate office</h3><span class="label">Corporate &amp; commercial · Chennai</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    <a class="card" href="projects/technology-office.html" data-cats="commercial">
+      <div class="card__img"><img src="assets/img/o2-open-1600.webp" srcset="assets/img/o2-open-800.webp 800w, assets/img/o2-open-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Open-plan office with glass-partitioned cabins and rows of workstations" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-technology-office"></div>
+      <div class="card__body"><div><h3>A modern technology office</h3><span class="label">Corporate &amp; commercial · Office fit-out &amp; joinery</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
-    <a class="card" href="projects/modular-kitchen.html" data-cat="kitchens">
-      <div class="card__img"><img src="assets/img/kitchen-1600.webp" srcset="assets/img/kitchen-800.webp 800w, assets/img/kitchen-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Kitchen with walnut cabinetry and a veined stone island with bar stools" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-modular-kitchen"><span class="ph">Placeholder project</span></div>
-      <div class="card__body"><div><h3>Walnut island kitchen</h3><span class="label">Modular kitchens · Chennai</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    <a class="card" href="projects/industrial-creative-office.html" data-cats="commercial">
+      <div class="card__img"><img src="assets/img/o3-lounge-1600.webp" srcset="assets/img/o3-lounge-800.webp 800w, assets/img/o3-lounge-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Office lounge with sofas, a round coffee table and plants under an exposed ceiling" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-industrial-creative-office"></div>
+      <div class="card__body"><div><h3>An industrial-style creative office</h3><span class="label">Corporate &amp; commercial · Interior design &amp; build</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a>
-    <a class="card" href="projects/living-furniture.html" data-cat="furniture">
-      <div class="card__img"><img src="assets/img/furniture-1600.webp" srcset="assets/img/furniture-800.webp 800w, assets/img/furniture-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Boucle armchair with a curved walnut frame beside a low wooden table" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-living-furniture"><span class="ph">Placeholder project</span></div>
-      <div class="card__body"><div><h3>Living room furniture</h3><span class="label">Furniture &amp; woodwork · Chennai</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    <a class="card" href="projects/compact-working-office.html" data-cats="commercial">
+      <div class="card__img"><img src="assets/img/o4-open-1600.webp" srcset="assets/img/o4-open-800.webp 800w, assets/img/o4-open-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Open office with a timber-faced partition and long workstation runs" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-compact-working-office"></div>
+      <div class="card__body"><div><h3>A compact working office</h3><span class="label">Corporate &amp; commercial · Office fit-out</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/operations-office.html" data-cats="commercial">
+      <div class="card__img"><img src="assets/img/o5-admin-1600.webp" srcset="assets/img/o5-admin-800.webp 800w, assets/img/o5-admin-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Admin workstations with grey storage cabinets, shelving and a whiteboard" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-operations-office"></div>
+      <div class="card__body"><div><h3>An operations office with a prayer niche</h3><span class="label">Corporate &amp; commercial · Office fit-out &amp; joinery</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/family-home.html" data-cats="residential kitchens furniture">
+      <div class="card__img"><img src="assets/img/h1-living-1600.webp" srcset="assets/img/h1-living-800.webp 800w, assets/img/h1-living-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Living room with a marble-finish TV wall, floating console, cove lighting and a cream sofa" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-family-home"></div>
+      <div class="card__body"><div><h3>A complete family home</h3><span class="label">Residential &amp; villas · Full-home interior design &amp; build</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/open-plan-home.html" data-cats="residential kitchens furniture">
+      <div class="card__img"><img src="assets/img/h2-kitchen-1600.webp" srcset="assets/img/h2-kitchen-800.webp 800w, assets/img/h2-kitchen-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Grey island kitchen with a white top, open to the dining and living areas" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-open-plan-home"></div>
+      <div class="card__body"><div><h3>An open-plan home with an island kitchen</h3><span class="label">Residential &amp; villas · Interior design &amp; build</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/sage-kitchen.html" data-cats="kitchens">
+      <div class="card__img"><img src="assets/img/k1-a-1600.webp" srcset="assets/img/k1-a-800.webp 800w, assets/img/k1-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="L-shaped kitchen with sage lower cabinets, cream uppers and a black granite counter" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-sage-kitchen"></div>
+      <div class="card__body"><div><h3>A sage green kitchen</h3><span class="label">Modular kitchens · Modular kitchen</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/beige-l-kitchen.html" data-cats="kitchens">
+      <div class="card__img"><img src="assets/img/k2-1600.webp" srcset="assets/img/k2-800.webp 800w, assets/img/k2-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Warm beige L-shaped kitchen with glass uppers, a breakfast counter and pendant light" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-beige-l-kitchen"></div>
+      <div class="card__body"><div><h3>A warm beige L-shaped kitchen</h3><span class="label">Modular kitchens · Modular kitchen</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/grey-island-kitchen.html" data-cats="kitchens">
+      <div class="card__img"><img src="assets/img/k3-a-1600.webp" srcset="assets/img/k3-a-800.webp 800w, assets/img/k3-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Grey kitchen island with open shelves, a white counter and tall oven units" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-grey-island-kitchen"></div>
+      <div class="card__body"><div><h3>A grey island kitchen</h3><span class="label">Modular kitchens · Modular kitchen</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/graphite-kitchens.html" data-cats="kitchens">
+      <div class="card__img"><img src="assets/img/k4-a-1600.webp" srcset="assets/img/k4-a-800.webp 800w, assets/img/k4-a-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Graphite L-shaped kitchen with a tall appliance unit and under-cabinet lighting" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-graphite-kitchens"></div>
+      <div class="card__body"><div><h3>Graphite modular kitchens</h3><span class="label">Modular kitchens · Modular kitchens</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="card" href="projects/pooja-rooms.html" data-cats="furniture residential">
+      <div class="card__img"><img src="assets/img/f1-jali-1600.webp" srcset="assets/img/f1-jali-800.webp 800w, assets/img/f1-jali-1600.webp 1600w" sizes="(max-width:900px) 80vw, 40vw" alt="Pooja space with a backlit jali screen, timber-batten ceiling and marble-finish wall" width="1600" height="900" loading="lazy" decoding="async" style="view-transition-name:p-pooja-rooms"></div>
+      <div class="card__body"><div><h3>Pooja rooms in wood and light</h3><span class="label">Furniture &amp; woodwork · Custom woodwork</span></div><span class="card__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h15"/><path d="m13 6 6 6-6 6"/></svg></span></div>
     </a><p class="empty" hidden>No projects in this category yet.</p></div>
   </div>
 </section>

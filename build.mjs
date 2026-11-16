@@ -22,25 +22,18 @@ function logoHz(label = 'GM Modulars — home') {
 // ---------- image helper ----------
 const img = (root, name, alt, { cls = '', sizes = '100vw', eager = false, vt = '' } = {}) =>
   `<img${cls ? ` class="${cls}"` : ''} src="${root}assets/img/${name}-1600.webp" srcset="${root}assets/img/${name}-800.webp 800w, ${root}assets/img/${name}-1600.webp 1600w" sizes="${sizes}" alt="${esc(alt)}" width="1600" height="900"${eager ? ' fetchpriority="high"' : ' loading="lazy" decoding="async"'}${vt ? ` style="view-transition-name:${vt}"` : ''}>`;
-const ALT = {
-  residential: 'Living room with travertine fireplace wall, boucle sofas and a walnut coffee table',
-  corporate: 'Boardroom with a long walnut table, upholstered chairs and glass partitions',
-  kitchen: 'Kitchen with walnut cabinetry and a veined stone island with bar stools',
-  furniture: 'Boucle armchair with a curved walnut frame beside a low wooden table',
-  signage: 'Brushed bronze GM Modulars sign mounted on a travertine wall',
-  stationery: 'GM Modulars stationery set on a stone surface'
-};
-const PH = (txt = 'Illustrative image') => `<span class="ph">${txt}</span>`;
+const ALT = data.images || {};
+const PH = (txt) => txt ? `<span class="ph">${txt}</span>` : ''; // photos are real GM work: no label by default
 
 // ---------- components ----------
 const C = {
   logo: () => logoHz(),
   card: (root, p, { sizes = '(max-width:900px) 80vw, 40vw' } = {}) => `
-    <a class="card" href="${root}projects/${p.slug}.html" data-cat="${p.category}">
-      <div class="card__img">${img(root, p.img, ALT[p.img], { sizes, vt: 'p-' + p.slug })}${p.placeholder ? PH('Placeholder project') : ''}</div>
-      <div class="card__body"><div><h3>${esc(p.title)}</h3><span class="label">${esc(p.categoryName)} · ${esc(p.location)}</span></div><span class="card__arrow" aria-hidden="true">${ARROW}</span></div>
+    <a class="card" href="${root}projects/${p.slug}.html" data-cats="${p.cats.join(' ')}">
+      <div class="card__img">${img(root, p.img, ALT[p.img], { sizes, vt: 'p-' + p.slug })}</div>
+      <div class="card__body"><div><h3>${esc(p.title)}</h3><span class="label">${esc(p.categoryName)} · ${esc(p.scope)}</span></div><span class="card__arrow" aria-hidden="true">${ARROW}</span></div>
     </a>`,
-  cards: (root, filter) => data.projects.filter(p => !filter || filter === 'all' || p.category === filter).map(p => C.card(root, p)).join(''),
+  cards: (root, filter) => data.projects.filter(p => !filter || filter === 'all' || p.cats.includes(filter)).sort((x, y) => (!filter || filter === 'all') ? 0 : (x.category === filter ? 0 : 1) - (y.category === filter ? 0 : 1)).map(p => C.card(root, p)).join(''),
   fx: (root) => `
     <div class="fx" data-fx-studio data-reveal>
       <noscript><p class="fx__note">The finish studio needs JavaScript. Call us to see real samples.</p></noscript>
@@ -90,6 +83,9 @@ const head = (m, root, rel) => `<!DOCTYPE html>
 <link rel="preload" href="${root}assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${root}assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="${root}assets/css/site.css">
+<script>/* Open every page at the top. Embedded previews and some browsers keep the previous page's scroll position; Back/Forward and real #anchors still work. */
+(function(){function top(){var n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(n&&n.type==='back_forward')return;var h=location.hash.slice(1);if(h&&document.getElementById(h))return;window.scrollTo(0,0)}top();document.addEventListener('DOMContentLoaded',top);addEventListener('load',function(){top();setTimeout(top,60)});addEventListener('pageshow',function(e){if(!e.persisted)top()})})();</script>
+
 ${m.preload ? `<link rel="preload" as="image" href="${root}assets/img/${m.preload}-1600.webp" imagesrcset="${root}assets/img/${m.preload}-800.webp 800w, ${root}assets/img/${m.preload}-1600.webp 1600w" imagesizes="100vw">` : ''}
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'HomeAndConstructionBusiness', name: co.name, description: 'Interior design and build company in Chennai with its own factory for modular kitchens, furniture, doors and woodwork.', telephone: co.phones[0].replace(/\s/g, ''), email: co.email, url: co.siteUrl, image: co.siteUrl + '/assets/img/og-image.png', address: { '@type': 'PostalAddress', streetAddress: '7/137, Ground Floor, Kundrathur Main Road, Kovur', addressLocality: 'Chennai', postalCode: '600128', addressRegion: 'Tamil Nadu', addressCountry: 'IN' }, areaServed: 'Tamil Nadu' })}</script>
 </head>
@@ -167,7 +163,7 @@ for (const f of fs.readdirSync(`${SRC}/pages`)) {
 // project case studies
 data.projects.forEach((p, i) => {
   const nx = data.projects[(i + 1) % data.projects.length];
-  emit(`projects/${p.slug}.html`, { title: `${p.title} — ${p.categoryName} | GM Modulars`, desc: `${p.title}: ${p.scope}. A GM Modulars project in ${p.location}.`, nav: 'projects', preload: p.img }, projectPage(p, nx));
+  emit(`projects/${p.slug}.html`, { title: `${p.title} — ${p.categoryName} | GM Modulars`, desc: `${p.title}: ${p.scope}. ${p.brief}`.slice(0, 158), nav: 'projects', preload: p.img }, projectPage(p, nx));
 });
 // sitemap + robots
 fs.writeFileSync(`${OUT}/sitemap.xml`, `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.map(p => `  <url><loc>${co.siteUrl}/${p === 'index.html' ? '' : p}</loc></url>`).join('\n')}\n</urlset>\n`);
@@ -225,7 +221,7 @@ function projectPage(p, nx) {
   const root = '{{root}}';
   return `
   <section class="phero" data-theme="dark" data-hero-zone>
-    <div class="phero__img">${img(root, p.img, ALT[p.img], { eager: true, vt: 'p-' + p.slug })}${p.placeholder ? PH('Placeholder project') : ''}</div>
+    <div class="phero__img">${img(root, p.img, ALT[p.img], { eager: true, vt: 'p-' + p.slug })}</div>
     <div class="wrap phero__copy">
       <nav class="crumbs" aria-label="Breadcrumb"><a href="{{root}}projects.html">Projects</a><span aria-hidden="true">/</span><span>${p.categoryName}</span></nav>
       <h1 class="h-xl lines"><span class="ln"><span>${esc(p.title)}</span></span></h1>
@@ -233,20 +229,19 @@ function projectPage(p, nx) {
   </section>
   <section class="section" data-theme="light">
     <div class="wrap">
-      ${p.placeholder ? `<div class="notice" data-reveal><span class="label">Placeholder</span><span>This is a case-study template. The photographs are illustrative and the details below are placeholders — replace them with a real GM Modulars project in <code>src/data/site.json</code>.</span></div>` : ''}
-      <dl class="facts" style="margin-top:3rem">
+      <dl class="facts">
         <div data-reveal><dt>Type</dt><dd>${p.categoryName}</dd></div>
-        <div data-reveal style="--i:1"><dt>Location</dt><dd>${p.location}</dd></div>
+        <div data-reveal style="--i:1"><dt>Spaces</dt><dd>${p.spaces}</dd></div>
         <div data-reveal style="--i:2"><dt>Scope</dt><dd>${p.scope}</dd></div>
-        <div data-reveal style="--i:3"><dt>Completed</dt><dd>${p.year}</dd></div>
+        <div data-reveal style="--i:3"><dt>Made in our factory</dt><dd>${p.made}</dd></div>
       </dl>
       <div class="split" style="margin-top:clamp(4rem,8vw,7rem)">
         <div class="split__l"><span class="kicker" data-reveal>The brief</span></div>
-        <div class="split__r"><p class="lead" data-reveal>[What the client needed, the site and its constraints — two or three sentences.]</p></div>
-        <div class="split__l"><span class="kicker" data-reveal>Our approach</span></div>
-        <div class="split__r"><p class="lead" data-reveal>[Layout decisions, materials and finishes, and what was made in the GM factory.]</p></div>
-        <div class="split__l"><span class="kicker" data-reveal>The result</span></div>
-        <div class="split__r"><p class="lead" data-reveal>[How the space works now, in the client's terms.]</p></div>
+        <div class="split__r"><p class="lead ink" data-reveal>${esc(p.brief)}</p></div>
+        <div class="split__l"><span class="kicker" data-reveal>What they needed</span></div>
+        <div class="split__r"><ul class="caps" style="margin-top:0">${p.needs.map((n, i) => `<li data-reveal style="--i:${i}"><span class="label">${String(i + 1).padStart(2, '0')}</span><div><h3>${esc(n)}</h3></div></li>`).join('')}</ul></div>
+        <div class="split__l"><span class="kicker" data-reveal>What we did</span></div>
+        <div class="split__r">${p.approach.map((t, i) => `<p class="lead" data-reveal style="--i:${i}">${esc(t)}</p>`).join('')}</div>
       </div>
     </div>
   </section>

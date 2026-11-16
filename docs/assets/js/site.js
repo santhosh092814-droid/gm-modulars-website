@@ -125,8 +125,12 @@
       hero && (hero.style.setProperty('--fl', fr.left + 'px'), hero.style.setProperty('--fr', (W - fr.right) + 'px'));
     };
     align(); addEventListener('resize', align);
-    const sio = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) set(items.indexOf(e.target)); }), { rootMargin: '-45% 0px -45% 0px' });
-    items.forEach(it => sio.observe(it));
+    // Active = item nearest the middle of the viewport. (IntersectionObserver rootMargin is ignored inside cross-origin iframes, so measure directly.)
+    onScroll.push((y, vh) => {
+      let best = 0, bd = Infinity;
+      items.forEach((it, k) => { const r = it.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - vh / 2); if (d < bd) { bd = d; best = k; } });
+      set(best);
+    });
   }
 
   /* ---------- factory: laminate stack separates with scroll ---------- */
@@ -191,7 +195,7 @@
     const cards = $$('.pgrid .card'), empty = $('.pgrid .empty');
     const apply = (cat, push) => {
       filters.forEach(f => f.setAttribute('aria-pressed', f.dataset.cat === cat));
-      let n = 0; cards.forEach(c => { const on = cat === 'all' || c.dataset.cat === cat; c.classList.toggle('is-hidden', !on); if (on) n++; });
+      let n = 0; cards.forEach(c => { const on = cat === 'all' || (c.dataset.cats || '').split(' ').includes(cat); c.classList.toggle('is-hidden', !on); if (on) n++; });
       if (empty) empty.hidden = n > 0;
       if (push) history.replaceState(null, '', cat === 'all' ? location.pathname : '#' + cat);
     };

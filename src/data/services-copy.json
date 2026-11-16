@@ -28,8 +28,8 @@
    ]
   ],
   "imgs": [
-   "residential",
-   "furniture"
+   "h1-master",
+   "h1-foyer"
   ]
  },
  "commercial": {
@@ -61,8 +61,8 @@
    ]
   ],
   "imgs": [
-   "corporate",
-   "signage"
+   "o2-board",
+   "o3-lounge"
   ]
  },
  "kitchens": {
@@ -94,8 +94,8 @@
    ]
   ],
   "imgs": [
-   "kitchen",
-   "residential"
+   "k1-a",
+   "k2"
   ]
  },
  "furniture": {
@@ -127,8 +127,8 @@
    ]
   ],
   "imgs": [
-   "furniture",
-   "kitchen"
+   "h1-bed",
+   "h2-living"
   ]
  }
 }
