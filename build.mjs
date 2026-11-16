@@ -2,6 +2,8 @@
 // node build.mjs  →  dist/
 import fs from 'node:fs'; import path from 'node:path';
 const SRC = 'src', OUT = process.env.OUT || 'docs'; // docs/ is served by GitHub Pages
+import crypto from 'node:crypto';
+const V = f => crypto.createHash('md5').update(fs.readFileSync(`${SRC}/assets/${f}`)).digest('hex').slice(0, 8);
 const data = JSON.parse(fs.readFileSync(`${SRC}/data/site.json`, 'utf8'));
 const co = data.company;
 const LOGO = JSON.parse(fs.readFileSync(`${SRC}/data/logo.json`, 'utf8')); // {sym, word:[...]}
@@ -39,7 +41,7 @@ const C = {
     <div class="fx" data-fx-studio data-reveal>
       <noscript><p class="fx__note">The finish studio needs JavaScript. Call us to see real samples.</p></noscript>
     </div>
-    <script src="${root}assets/js/fx.js" defer></script>`,
+    <script src="${root}assets/js/fx.js?v=${V('js/fx.js')}" defer></script>`,
   contactList: () => `
     <div class="contact-list">
       <a href="${tel(co.phones[0])}"><span class="label">Call</span><strong>${co.phones[0]}<br>${co.phones[1]}</strong></a>
@@ -83,7 +85,7 @@ const head = (m, root, rel) => `<!DOCTYPE html>
 <link rel="apple-touch-icon" href="${root}assets/logo/apple-touch-icon.png">
 <link rel="preload" href="${root}assets/fonts/newsreader.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="${root}assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="${root}assets/css/site.css">
+<link rel="stylesheet" href="${root}assets/css/site.css?v=${V('css/site.css')}">
 <script>/* Open every page at the top. Embedded previews and some browsers keep the previous page's scroll position; Back/Forward and real #anchors still work. */
 (function(){function top(){var n=performance.getEntriesByType&&performance.getEntriesByType('navigation')[0];if(n&&n.type==='back_forward')return;var h=location.hash.slice(1);if(h&&document.getElementById(h))return;window.scrollTo(0,0)}top();document.addEventListener('DOMContentLoaded',top);addEventListener('load',function(){top();setTimeout(top,60)});addEventListener('pageshow',function(e){if(!e.persisted)top()})})();</script>
 
@@ -125,8 +127,8 @@ const footer = (m, root) => `
     <div class="ftr__base"><span>© <span data-year>2026</span> GM Modulars</span><span>Chennai · Tamil Nadu</span></div>
   </div>
 </footer>
-<script src="${root}assets/js/config.js"></script>
-<script src="${root}assets/js/site.js" defer></script>
+<script src="${root}assets/js/config.js?v=${V('js/config.js')}"></script>
+<script src="${root}assets/js/site.js?v=${V('js/site.js')}" defer></script>
 <script>document.querySelectorAll('[data-year]').forEach(e=>e.textContent=new Date().getFullYear())</script>
 </body>
 </html>`;
